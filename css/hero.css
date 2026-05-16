@@ -1,0 +1,1008 @@
+/* =========================
+   S3D HERO V2
+   Full responsive hero system
+========================= */
+
+@media(min-width: 981px) {
+  main {
+    width: min(1540px, calc(100% - 72px));
+  }
+}
+
+.hero-v2 {
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 54px;
+  min-height: calc(100vh - 78px);
+  padding-top: 70px;
+}
+
+.hero-copy-panel {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-v2 h1 {
+  max-width: 620px;
+}
+
+.hero-v2 .hero-copy {
+  max-width: 620px;
+}
+
+.hero-v2 .btn.primary span {
+  margin-left: 14px;
+  font-size: 18px;
+}
+
+/* =========================
+   LEFT STATS DOCK
+========================= */
+
+.hero-stat-dock {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(0,216,255,0.22);
+  background: rgba(5,10,19,0.52);
+  box-shadow: 0 0 45px rgba(0,216,255,0.08);
+}
+
+.hero-stat-dock div {
+  padding: 18px 16px;
+  border-right: 1px solid rgba(255,255,255,0.09);
+}
+
+.hero-stat-dock div:last-child {
+  border-right: none;
+}
+
+.hero-stat-dock small {
+  display: block;
+  color: var(--cyan);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.hero-stat-dock strong {
+  display: block;
+  font-family: var(--clean);
+  font-size: 28px;
+  color: var(--text);
+  letter-spacing: -0.05em;
+}
+
+.hero-stat-dock span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================
+   HERO STAGE
+========================= */
+
+.hero-system {
+  min-height: 780px;
+}
+
+.hero-system-shell {
+  position: relative;
+  height: 780px;
+  width: 100%;
+  perspective: 1200px;
+}
+
+/* =========================
+   MAIN DRONE VIDEO
+========================= */
+
+.hero-main-video {
+  position: absolute;
+  inset: 54px 70px 28px 20px;
+  border: 1px solid rgba(0,216,255,0.28);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.46),
+    inset 0 0 70px rgba(0,216,255,0.08);
+}
+
+.hero-main-video video {
+  opacity: 0.86;
+  filter: saturate(1.12) contrast(1.12) brightness(0.9);
+}
+
+.hero-main-video::before {
+  background:
+    linear-gradient(180deg, rgba(7,13,24,0.02), rgba(7,13,24,0.38)),
+    radial-gradient(circle at 30% 20%, rgba(0,216,255,0.18), transparent 38%),
+    radial-gradient(circle at 88% 22%, rgba(255,173,51,0.11), transparent 34%);
+}
+
+/* =========================
+   HOLOGRAPHIC OVERLAYS
+========================= */
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 20px 70px 20px 20px;
+  pointer-events: none;
+  z-index: 7;
+  opacity: 0.26;
+  background:
+    linear-gradient(rgba(0,216,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,216,255,0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 58% 48%, black, transparent 72%);
+}
+
+.hero-scanline {
+  position: absolute;
+  left: 18px;
+  right: 70px;
+  top: 48%;
+  height: 1px;
+  z-index: 14;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,216,255,0.85),
+    rgba(255,173,51,0.55),
+    transparent
+  );
+  animation: heroScanlineMove 5.8s ease-in-out infinite;
+}
+
+@keyframes heroScanlineMove {
+  0% {
+    transform: translateY(-220px);
+    opacity: 0;
+  }
+
+  30%,
+  70% {
+    opacity: 0.72;
+  }
+
+  100% {
+    transform: translateY(220px);
+    opacity: 0;
+  }
+}
+
+.hero-mouse-glow {
+  position: absolute;
+  z-index: 9;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  left: var(--mx, 55%);
+  top: var(--my, 45%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(0,216,255,0.16), transparent 62%);
+  opacity: 0.55;
+  transition: left 0.12s ease, top 0.12s ease;
+}
+
+/* =========================
+   CORNER FRAMES
+========================= */
+
+.hero-corner {
+  position: absolute;
+  z-index: 15;
+  width: 170px;
+  height: 120px;
+  pointer-events: none;
+  border-color: rgba(0,216,255,0.32);
+}
+
+.hero-corner-tl {
+  top: 20px;
+  left: 2px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.hero-corner-tr {
+  top: 18px;
+  right: 62px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.hero-corner-bl {
+  bottom: 16px;
+  left: 4px;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.hero-corner-br {
+  bottom: 16px;
+  right: 62px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.hero-ui-frame {
+  position: absolute;
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0.5;
+}
+
+.hero-ui-frame-top {
+  top: 22px;
+  left: 42px;
+  right: 360px;
+  height: 24px;
+  border-top: 1px solid rgba(0,216,255,0.38);
+}
+
+.hero-ui-frame-top::after {
+  content: "";
+  position: absolute;
+  right: -220px;
+  top: -1px;
+  width: 220px;
+  height: 1px;
+  background: rgba(0,216,255,0.38);
+}
+
+.hero-ui-frame-right {
+  top: 70px;
+  right: 76px;
+  width: 1px;
+  height: 580px;
+  background: linear-gradient(
+    transparent,
+    rgba(255,173,51,0.5),
+    transparent
+  );
+}
+
+/* =========================
+   RADAR / TARGET
+========================= */
+
+.hero-radar {
+  position: absolute;
+  z-index: 11;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(0,216,255,0.28);
+  box-shadow: 0 0 50px rgba(0,216,255,0.1);
+  animation: radarPulse 4s ease-in-out infinite;
+}
+
+.hero-radar::before,
+.hero-radar::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0,216,255,0.18);
+}
+
+.hero-radar::before {
+  inset: 32px;
+}
+
+.hero-radar::after {
+  inset: 66px;
+  border-color: rgba(255,173,51,0.18);
+}
+
+.hero-radar-main {
+  width: 245px;
+  height: 245px;
+  left: 120px;
+  top: 345px;
+}
+
+.hero-radar-top {
+  width: 170px;
+  height: 170px;
+  right: 220px;
+  top: 50px;
+  opacity: 0.7;
+}
+
+@keyframes radarPulse {
+  50% {
+    transform: scale(1.06);
+    opacity: 0.88;
+  }
+}
+
+.hero-target {
+  position: absolute;
+  z-index: 12;
+  right: 185px;
+  top: 265px;
+  width: 92px;
+  height: 92px;
+  border: 1px solid rgba(255,173,51,0.28);
+  pointer-events: none;
+  animation: targetDrift 7s ease-in-out infinite;
+}
+
+@keyframes targetDrift {
+  50% {
+    transform: translate(-16px, 12px);
+  }
+}
+
+/* =========================
+   HUD CARDS BASE STYLE
+========================= */
+
+.hud-panel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  min-width: 178px;
+  padding: 18px 20px;
+  background:
+    linear-gradient(145deg, rgba(8,15,28,0.92), rgba(14,24,42,0.78));
+  border: 1px solid rgba(0,216,255,0.3);
+  box-shadow:
+    0 22px 70px rgba(0,0,0,0.38),
+    inset 0 0 36px rgba(0,216,255,0.055);
+  clip-path: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+}
+
+.hud-panel::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  height: 3px;
+  background: rgba(0,216,255,0.18);
+}
+
+.hud-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  font-size: 18px;
+  border: 1px solid rgba(0,216,255,0.28);
+  background: rgba(0,216,255,0.05);
+}
+
+.hud-panel small {
+  margin-bottom: 7px;
+}
+
+.hud-panel strong {
+  font-size: 20px;
+}
+
+.hud-bar {
+  position: relative;
+  display: block;
+  width: 86px;
+  height: 3px;
+  margin-top: 15px;
+  background: rgba(0,216,255,0.18);
+}
+
+.hud-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 62%;
+  background: var(--cyan);
+  box-shadow: 0 0 18px rgba(0,216,255,0.7);
+}
+
+.hud-bar.saffron::before {
+  background: var(--saffron);
+  box-shadow: 0 0 18px rgba(255,173,51,0.7);
+}
+
+.hud-bar.green::before {
+  background: var(--green);
+  box-shadow: 0 0 18px rgba(53,255,155,0.6);
+}
+
+/* =========================
+   HUD CARD POSITIONS - DESKTOP
+========================= */
+
+/*
+  hud-one   = Primary
+  hud-two   = Creative Layer
+  hud-three = Build Style
+  hud-four  = Current Build
+  hud-five  = Workflow
+  hud-six   = Mindset
+*/
+
+.hud-one {
+  left: -24px;
+  top: 96px;
+}
+
+.hud-two {
+  right: -8px;
+  top: 118px;
+}
+
+.hud-three {
+  right: 470px;
+  bottom: 118px;
+  min-width: 148px;
+  width: 148px;
+  padding: 14px 14px;
+  gap: 10px;
+}
+
+.hud-three .hud-icon {
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+}
+
+.hud-three strong {
+  font-size: 17px;
+}
+
+.hud-three .hud-bar {
+  width: 70px;
+  margin-top: 11px;
+}
+
+.hud-three::after {
+  left: 14px;
+  right: 14px;
+}
+
+.hud-four {
+  left: 420px;
+  top: 28px;
+}
+
+.hud-five {
+  right: 18px;
+  bottom: 54px;
+}
+
+.hud-six {
+  left: -8px;
+  top: 360px;
+}
+
+/* =========================
+   PORTRAIT PANEL
+   moved up + right
+========================= */
+
+.hero-portrait-panel {
+  position: absolute;
+  z-index: 14;
+  right: -42px;
+  bottom: 180px;
+  width: 215px;
+  height: 330px;
+  overflow: hidden;
+  border: 1px solid rgba(255,173,51,0.36);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,0.45),
+    0 0 55px rgba(255,173,51,0.08);
+  clip-path: polygon(0 0, 88% 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+/* =========================
+   3D MODEL DOCK
+   moved lower-middle
+========================= */
+
+.hero-model-dock {
+  position: absolute;
+  z-index: 13;
+  left: 300px;
+  bottom: -46px;
+  width: 360px;
+  padding: 16px;
+  border: 1px solid rgba(0,216,255,0.28);
+  background: rgba(5,10,19,0.78);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.34),
+    inset 0 0 35px rgba(0,216,255,0.06);
+  clip-path: polygon(0 18px, 18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+}
+
+.model-dock-head {
+  margin-bottom: 12px;
+}
+
+.model-dock-head small {
+  display: block;
+  color: var(--soft);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 5px;
+}
+
+.model-dock-head strong {
+  font-family: var(--clean);
+  font-size: 17px;
+}
+
+.model-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.model-strip img {
+  width: 100%;
+  height: 82px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.14);
+  opacity: 0.82;
+  transition: 0.3s ease;
+}
+
+.model-strip img:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.04);
+}
+
+.model-dock-lines {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.model-dock-lines span {
+  width: 42px;
+  height: 2px;
+  background: rgba(0,216,255,0.55);
+  box-shadow: 0 0 12px rgba(0,216,255,0.5);
+}
+
+/* =========================
+   LARGE LAPTOP RESPONSIVE
+   1200px - 1399px
+========================= */
+
+@media(max-width: 1399px) and (min-width: 1101px) {
+  main {
+    width: min(1360px, calc(100% - 48px));
+  }
+
+  .hero-v2 {
+    grid-template-columns: 0.76fr 1.24fr;
+    gap: 38px;
+  }
+
+  .hero-v2 h1 {
+    font-size: clamp(52px, 6.3vw, 82px);
+  }
+
+  .hero-system-shell {
+    height: 720px;
+  }
+
+  .hero-system {
+    min-height: 720px;
+  }
+
+  .hero-main-video {
+    inset: 58px 10px 36px 94px;
+  }
+
+  .hud-panel {
+    min-width: 158px;
+    padding: 15px 16px;
+    gap: 10px;
+  }
+
+  .hud-panel strong {
+    font-size: 17px;
+  }
+
+  .hud-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+  }
+
+  .hud-one {
+    left: 18px;
+    top: 98px;
+  }
+
+  .hud-two {
+    right: -6px;
+    top: 122px;
+  }
+
+  .hud-four {
+    left: 425px;
+    top: 26px;
+  }
+
+  .hud-six {
+    left: 28px;
+    top: 330px;
+  }
+
+  .hud-three {
+    right: 405px;
+    bottom: 120px;
+    min-width: 132px;
+    width: 132px;
+    padding: 12px;
+  }
+
+  .hud-three strong {
+    font-size: 15px;
+  }
+
+  .hud-five {
+    right: 8px;
+    bottom: 58px;
+  }
+
+  .hero-portrait-panel {
+    width: 205px;
+    height: 315px;
+    right: -28px;
+    bottom: 145px;
+  }
+
+  .hero-model-dock {
+    left: 300px;
+    bottom: -10px;
+    width: 330px;
+  }
+
+  .model-strip img {
+    height: 72px;
+  }
+
+  .hero-radar-main {
+    left: 220px;
+    top: 320px;
+  }
+
+  .hero-radar-top {
+    right: 205px;
+  }
+}
+
+/* =========================
+   SMALL LAPTOP / TABLET LANDSCAPE
+   981px - 1100px
+========================= */
+
+@media(max-width: 1100px) and (min-width: 981px) {
+  main {
+    width: min(1180px, calc(100% - 36px));
+  }
+
+  .hero-v2 {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .hero-v2 h1,
+  .hero-v2 .hero-copy {
+    max-width: 860px;
+  }
+
+  .hero-system {
+    min-height: 680px;
+  }
+
+  .hero-system-shell {
+    height: 680px;
+  }
+
+  .hero-main-video {
+    inset: 44px 18px 34px 72px;
+  }
+
+  .hud-panel {
+    min-width: 150px;
+    padding: 14px 15px;
+  }
+
+  .hud-panel strong {
+    font-size: 16px;
+  }
+
+  .hud-icon {
+    display: none;
+  }
+
+  .hud-one {
+    left: 38px;
+    top: 88px;
+  }
+
+  .hud-two {
+    right: 8px;
+    top: 98px;
+  }
+
+  .hud-four {
+    left: 55%;
+    top: 8px;
+    transform: translateX(-50%);
+  }
+
+  .hud-six {
+    left: 38px;
+    top: 330px;
+  }
+
+  .hud-three {
+    right: 300px;
+    bottom: 96px;
+    min-width: 125px;
+    width: 125px;
+    padding: 12px;
+  }
+
+  .hud-three strong {
+    font-size: 15px;
+  }
+
+  .hud-five {
+    right: 8px;
+    bottom: 44px;
+  }
+
+  .hero-portrait-panel {
+    width: 205px;
+    height: 310px;
+    right: 4px;
+    bottom: 130px;
+  }
+
+  .hero-model-dock {
+    left: 330px;
+    bottom: -4px;
+    width: 330px;
+  }
+
+  .model-strip img {
+    height: 68px;
+  }
+
+  .hero-radar-top {
+    display: none;
+  }
+}
+
+/* =========================
+   TABLET / MOBILE
+   BELOW 980px
+   Clean stacked mobile layout
+========================= */
+
+@media(max-width: 980px) {
+  .hero-v2 {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding-top: 44px;
+  }
+
+  .hero-copy-panel {
+    text-align: left;
+  }
+
+  .hero-v2 h1,
+  .hero-v2 .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-stat-dock {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+  }
+
+  .hero-stat-dock div {
+    border-right: 1px solid rgba(255,255,255,0.09);
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+  }
+
+  .hero-stat-dock div:nth-child(2),
+  .hero-stat-dock div:nth-child(4) {
+    border-right: none;
+  }
+
+  .hero-stat-dock div:nth-child(3),
+  .hero-stat-dock div:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .hero-system {
+    min-height: auto;
+  }
+
+  .hero-system-shell {
+    height: auto;
+    display: grid;
+    gap: 16px;
+  }
+
+  .hero-main-video {
+    position: relative;
+    inset: auto;
+    height: 420px;
+    order: 1;
+  }
+
+  .hero-main-video video {
+    opacity: 0.9;
+  }
+
+  .hero-grid-overlay,
+  .hero-scanline,
+  .hero-mouse-glow,
+  .hero-corner,
+  .hero-ui-frame,
+  .hero-radar,
+  .hero-target {
+    display: none;
+  }
+
+  .hud-card,
+  .hud-panel,
+  .hud-one,
+  .hud-two,
+  .hud-three,
+  .hud-four,
+  .hud-five,
+  .hud-six {
+    position: relative;
+    inset: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    animation: none;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hud-panel {
+    order: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 16px;
+    clip-path: none;
+    border-radius: 0;
+  }
+
+  .hud-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    display: grid;
+  }
+
+  .hud-panel strong {
+    font-size: 18px;
+  }
+
+  .hud-panel small {
+    font-size: 10px;
+  }
+
+  .hud-one {
+    order: 2;
+  }
+
+  .hud-four {
+    order: 3;
+  }
+
+  .hud-two {
+    order: 4;
+  }
+
+  .hud-six {
+    order: 5;
+  }
+
+  .hud-three {
+    order: 6;
+  }
+
+  .hud-five {
+    order: 7;
+  }
+
+  .hero-portrait-panel {
+    position: relative;
+    order: 8;
+    right: auto;
+    bottom: auto;
+    width: min(250px, 78vw);
+    height: 380px;
+    margin: 0 auto;
+    clip-path: none;
+  }
+
+  .hero-model-dock {
+    position: relative;
+    order: 9;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    clip-path: none;
+  }
+
+  .model-strip img {
+    height: 90px;
+  }
+}
+
+/* =========================
+   PHONE
+   BELOW 560px
+========================= */
+
+@media(max-width: 560px) {
+  .hero-v2 {
+    padding-top: 34px;
+  }
+
+  .hero-main-video {
+    height: 320px;
+  }
+
+  .hero-stat-dock {
+    display: none;
+  }
+
+  .hud-panel {
+    padding: 14px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hud-icon {
+    display: none;
+  }
+
+  .hud-panel strong {
+    font-size: 17px;
+  }
+
+  .hud-bar {
+    margin-top: 12px;
+  }
+
+  .hero-portrait-panel {
+    width: min(240px, 76vw);
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .hero-model-dock {
+    padding: 14px;
+  }
+
+  .model-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .model-strip img {
+    height: 120px;
+  }
+}

@@ -27,12 +27,15 @@ async function loadSection(targetId, filePath) {
     target.innerHTML = await response.text();
   } catch (error) {
     console.error(error);
+
     target.innerHTML = `
       <section>
         <div class="section-panel">
           <div class="section-kicker">Load Error</div>
           <h2>Could not load ${filePath}</h2>
-          <p class="panel-copy">Check the file path and make sure you are running the site through Live Server.</p>
+          <p class="panel-copy">
+            Check the file path and make sure you are running the site through Live Server.
+          </p>
         </div>
       </section>
     `;
@@ -45,6 +48,8 @@ async function loadAllSections() {
   );
 
   initialiseSite();
+
+  // Important: tells extra scripts like sayvah.js that the HTML sections now exist
   document.dispatchEvent(new Event("s3d:sections-loaded"));
 }
 
@@ -77,15 +82,18 @@ function initialiseScrollProgress() {
 function initialiseRevealAnimations() {
   const revealItems = document.querySelectorAll(".reveal");
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      }
-    });
-  }, {
-    threshold: 0.16
-  });
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    {
+      threshold: 0.16,
+    }
+  );
 
   revealItems.forEach((el) => {
     revealObserver.observe(el);
@@ -141,7 +149,6 @@ function initialiseRotatingHudText() {
         item.textContent = words[index];
         item.classList.remove("text-switching");
       }, 280);
-
     }, 2200);
   });
 }

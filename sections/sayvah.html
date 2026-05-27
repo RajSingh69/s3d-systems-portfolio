@@ -1,55 +1,169 @@
-<section id="sayvah">
-  <div class="section-panel sayvah-card reveal">
-    <div class="section-head">
+<!-- SayVah Section -->
+<section id="sayvah" class="sayvah-section">
+  <div class="sayvah-bg">
+    <div class="sayvah-orb orb-one"></div>
+    <div class="sayvah-orb orb-two"></div>
+    <div class="sayvah-grid"></div>
+  </div>
+
+  <div class="sayvah-wrap">
+    <div class="sayvah-hero">
+      <div class="sayvah-copy">
+        <div class="sayvah-kicker">Current flagship project</div>
+
+        <div class="sayvah-brand-line">
+          <img src="assets/images/sayvah/SayVah-App-Icon.png" alt="SayVah app icon" class="sayvah-icon" />
+          <span>SayVah</span>
+        </div>
+
+        <h2>Real-time community support, built around trust.</h2>
+
+        <p>
+          SayVah is a seva-focused mobile app designed to connect people who need help
+          with local sevadaars who are ready to support. It brings request creation,
+          helper matching, safety checks, trust profiles, reporting, admin oversight,
+          and future community tools into one platform.
+        </p>
+
+        <div class="sayvah-actions">
+          <a href="#sayvah-screens" class="sayvah-btn primary">View app screens</a>
+          <a href="#sayvah-features" class="sayvah-btn">How it works</a>
+        </div>
+
+        <div class="sayvah-stats">
+          <div><strong>16</strong><span>Test users</span></div>
+          <div><strong>11</strong><span>Live requests</span></div>
+          <div><strong>7</strong><span>Accepted</span></div>
+        </div>
+      </div>
+
+      <div class="sayvah-visual">
+        <div class="banner-card">
+          <img src="assets/images/sayvah/SayVah-Banner.jpg" alt="SayVah banner" />
+        </div>
+
+        <div class="phone-stack" aria-label="SayVah app screenshots">
+          <div class="phone phone-main">
+            <img src="assets/images/sayvah/v2-homepage.jpeg" alt="SayVah homepage screenshot" />
+          </div>
+
+          <div class="phone phone-side phone-left">
+            <img src="assets/images/sayvah/v2-avaliable-seva.jpeg" alt="Available Seva screenshot" />
+          </div>
+
+          <div class="phone phone-side phone-right">
+            <img src="assets/images/sayvah/v2-trust-profile.jpeg" alt="Trust profile screenshot" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sayvah-features" class="sayvah-panel">
+      <div class="sayvah-panel-head">
+        <div>
+          <div class="sayvah-kicker">Product story</div>
+          <h3>From request to real-world support.</h3>
+        </div>
+        <p>The app is structured around simple flows that keep the experience practical, safe, and easy to understand.</p>
+      </div>
+
+      <div class="flow-grid">
+        <article class="flow-card"><span>01</span><h4>Create</h4><p>Someone creates a seva request using templates, descriptions, location details, and service type.</p></article>
+        <article class="flow-card"><span>02</span><h4>Browse</h4><p>Sevadaars can view open requests, filter by type, and understand what help is needed.</p></article>
+        <article class="flow-card"><span>03</span><h4>Accept</h4><p>A helper accepts the request, starts the support flow, and can communicate safely.</p></article>
+        <article class="flow-card"><span>04</span><h4>Protect</h4><p>Trust profiles, reports, admin tools, and verification features help keep the platform safer.</p></article>
+      </div>
+    </div>
+
+    <div id="sayvah-screens" class="screens-section screens-section-horizontal">
+      <div class="ecosystem-header">
+        <div>
+          <div class="sayvah-kicker">App screens</div>
+          <h3>A real product ecosystem.</h3>
+        </div>
+
+        <div class="ecosystem-copy">
+          <p>One product flow across requesting, helping, trust, admin, community metrics, and future expansion.</p>
+
+          <div class="ecosystem-controls" aria-label="Screenshot rail controls">
+            <button class="rail-btn" type="button" data-rail="prev">←</button>
+            <button class="rail-btn" type="button" data-rail="next">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ecosystem-timeline" aria-label="SayVah product flow">
+        <span class="timeline-dot active">Home</span>
+        <span class="timeline-dot">Create</span>
+        <span class="timeline-dot">Browse</span>
+        <span class="timeline-dot">Pulse</span>
+        <span class="timeline-dot">Trust</span>
+        <span class="timeline-dot">Report</span>
+        <span class="timeline-dot">Admin</span>
+        <span class="timeline-dot">Explore</span>
+      </div>
+
+      <div class="screen-rail-wrap">
+        <div class="screen-rail" id="sayvahScreenRail">
+          <article class="screen-card featured">
+            <img src="assets/images/sayvah/v2-homepage.jpeg" alt="SayVah homepage screenshot" />
+            <div><span>Home</span><h4>Personal seva space</h4><p>A central dashboard for user status, guides, notices, and app activity.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-create-seva-request.jpeg" alt="Create Seva Request screenshot" />
+            <div><span>Request flow</span><h4>Create a request</h4><p>Quick templates and structured fields make it easier to ask for help.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-avaliable-seva.jpeg" alt="Available Seva screenshot" />
+            <div><span>Helping</span><h4>Available seva</h4><p>Helpers can filter and accept suitable requests from the wider community.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-community-pulse.jpeg" alt="Community Pulse screenshot" />
+            <div><span>Community</span><h4>Community pulse</h4><p>Live metrics show growth, users, helpers, requesters, and completed seva.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-trust-profile.jpeg" alt="Trust Profile screenshot" />
+            <div><span>Safety</span><h4>Trust profile</h4><p>Trust scores, ratings, completed helps, reports, and verification markers.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-report-request.jpeg" alt="Report Request screenshot" />
+            <div><span>Moderation</span><h4>Report request</h4><p>Users can report unsafe, fake, abusive, suspicious, or spam requests.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-admin-panel-requests.jpeg" alt="Admin Panel Requests screenshot" />
+            <div><span>Admin</span><h4>Admin oversight</h4><p>Admin tools help review requests, users, and platform activity.</p></div>
+          </article>
+
+          <article class="screen-card">
+            <img src="assets/images/sayvah/v2-explore-features.jpeg" alt="Explore Features screenshot" />
+            <div><span>Expansion</span><h4>Explore features</h4><p>Future tools include influencer seva, gurdwara maps, pages, travel, and access support.</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="sayvah-panel split-panel">
       <div>
-        <div class="section-kicker">Current Project</div>
-        <h2>SayVah — UK’s first seva app.</h2>
+        <div class="sayvah-kicker">Why it matters</div>
+        <h3>Helping should be easier to start.</h3>
+        <p>
+          SayVah is not just a request board. It is designed as a trust-based support system:
+          requesters get a clearer way to ask, helpers get a safer way to respond, and admins
+          get oversight to protect the community.
+        </p>
       </div>
 
-      <p>
-        SayVah is my current flagship project: a mobile app designed to connect
-        Sikh sevadaars with people in the wider non-Sikh community who need help.
-      </p>
-    </div>
-
-    <h3>Service through software.</h3>
-
-    <p class="panel-copy">
-      The idea is simple: someone needs support, a request is created, a sevadaar
-      responds, and real-world help happens. SayVah combines community values,
-      safety-focused flows and modern app technology.
-    </p>
-
-    <div class="flow-grid">
-      <div class="flow-step reveal">
-        <strong>01</strong>
-        <h4>Request</h4>
-        <p>Someone asks for help through the app.</p>
+      <div class="feature-list">
+        <div><strong>Trust-first design</strong><span>Profiles, ratings, verification, reports, and safety notices.</span></div>
+        <div><strong>Community intelligence</strong><span>Live metrics and flow tracking show how the platform is growing.</span></div>
+        <div><strong>Future ecosystem</strong><span>Gurdwara pages, maps, access support, and influencer seva tools.</span></div>
       </div>
-
-      <div class="flow-step reveal">
-        <strong>02</strong>
-        <h4>Match</h4>
-        <p>A sevadaar views and accepts a suitable request.</p>
-      </div>
-
-      <div class="flow-step reveal">
-        <strong>03</strong>
-        <h4>Support</h4>
-        <p>Communication and task flow happens safely.</p>
-      </div>
-
-      <div class="flow-step reveal">
-        <strong>04</strong>
-        <h4>Impact</h4>
-        <p>Technology helps create real-world seva.</p>
-      </div>
-    </div>
-
-    <div class="sayvah-mockups">
-      <div class="app-shot reveal">SayVah Screenshot<br />Coming Soon</div>
-      <div class="app-shot reveal">Request Flow<br />Coming Soon</div>
-      <div class="app-shot reveal">Community Dashboard<br />Coming Soon</div>
     </div>
   </div>
 </section>

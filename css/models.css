@@ -1,6 +1,11 @@
 .models-panel{
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+
+#models{
+  display: block;
+  width: 100%;
 }
 
 .models-head{
@@ -160,8 +165,8 @@
   cursor: zoom-in;
 
   transition:
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .saber-thumb:hover{
@@ -184,7 +189,11 @@
 
   transform:
     translate(-50%, -50%)
-    rotate(90deg);
+    rotate(90deg) !important;
+
+  transition: none !important;
+  animation: none !important;
+  filter: none !important;
 
   border: none !important;
   border-radius: 0 !important;
@@ -276,6 +285,18 @@
 
 @media (max-width: 768px){
 
+  #models,
+  .models-panel,
+  .model-project{
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .models-panel{
+    overflow: visible !important;
+  }
+
   .model-project{
     padding: 1.5rem;
     gap: 2rem;
@@ -300,23 +321,4 @@
     height: 440px;
   }
 
-}
-
-/* Kill ALL movement on rotated lightsaber images */
-.saber-gallery img,
-.saber-gallery img:hover,
-.saber-thumb img,
-.saber-thumb img:hover{
-  transform: translate(-50%, -50%) rotate(90deg) !important;
-  transition: none !important;
-  animation: none !important;
-  filter: none !important;
-}
-
-.saber-thumb,
-.saber-thumb:hover{
-  transform: none !important;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease !important;
 }

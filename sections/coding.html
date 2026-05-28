@@ -1,52 +1,167 @@
-<section id="coding">
-  <div class="section-panel reveal">
-    <div class="section-head">
-      <div>
-        <div class="section-kicker">Coding Projects</div>
-        <h2>Websites, apps and business systems.</h2>
+<section id="coding" class="coding-section">
+  <div class="coding-bg">
+    <div class="coding-grid"></div>
+    <div class="coding-orb coding-orb-one"></div>
+    <div class="coding-orb coding-orb-two"></div>
+  </div>
+
+  <div class="coding-wide-wrap">
+    <div class="coding-panel reveal">
+      <div class="coding-head">
+        <div>
+          <div class="section-kicker coding-kicker">Coding Portfolio</div>
+          <h2 class="split-words">Systems, apps and experimental tech builds.</h2>
+        </div>
+
+        <p>
+          A stronger look at the software side of S3D Systems — real platforms, mobile apps,
+          robotics concepts, immersive experiences and workflow tools. Click a project to open
+          a full project breakdown.
+        </p>
       </div>
 
-      <p>
-        This section highlights the software side of S3D Systems — the systems,
-        apps and tools I have built or am actively developing.
-      </p>
+      <div class="coding-feature-strip">
+        <button class="featured-project active" type="button" data-project="langar">
+          <div class="featured-media">
+            <span>S3D</span>
+          </div>
+          <div class="featured-copy">
+            <div class="project-type">01 / Robotics</div>
+            <h3>UK's First Langar Robot</h3>
+            <p>Experimental community robotics concept for automated langar assistance.</p>
+          </div>
+        </button>
+
+        <button class="featured-project" type="button" data-project="vr">
+          <div class="featured-media">
+            <span>S3D</span>
+          </div>
+          <div class="featured-copy">
+            <div class="project-type">02 / Interactive VR</div>
+            <h3>VR Mobile Walkthrough</h3>
+            <p>Mobile VR experience for exploring 3D spaces through an interactive walkthrough.</p>
+          </div>
+        </button>
+      </div>
+
+      <div class="coding-grid-projects" aria-label="Coding project cards">
+        <button class="coding-project-card" type="button" data-project="sayvah">
+          <span class="project-type">03 / Flutter App</span>
+          <strong>SayVah</strong>
+          <p>Seva-focused mobile app with requests, helpers, trust profiles and admin tools.</p>
+          <em>Open project</em>
+        </button>
+
+        <button class="coding-project-card" type="button" data-project="twoway">
+          <span class="project-type">04 / Business System</span>
+          <strong>TwoWay Procurement</strong>
+          <p>PHP/MySQL procurement platform for RFQs, NEGs, suppliers and workflow tracking.</p>
+          <em>Open project</em>
+        </button>
+
+        <button class="coding-project-card" type="button" data-project="pyroworx">
+          <span class="project-type">05 / Laravel</span>
+          <strong>Pyroworx</strong>
+          <p>Invoice and delivery-note system with Excel import/export and editable workflows.</p>
+          <em>Open project</em>
+        </button>
+
+        <button class="coding-project-card" type="button" data-project="websites">
+          <span class="project-type">06 / Websites</span>
+          <strong>Business Websites</strong>
+          <p>Modern sites, portfolios, landing pages and service-based digital presence.</p>
+          <em>Open project</em>
+        </button>
+
+        <button class="coding-project-card" type="button" data-project="automation">
+          <span class="project-type">07 / Automation</span>
+          <strong>Automation Tools</strong>
+          <p>Workflow automation, document generation and time-saving internal systems.</p>
+          <em>Open project</em>
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="card-index">01 / App</div>
-        <h3>SayVah</h3>
-        <p>Flutter and Firebase seva app with requests, users, chats and admin ideas. Further details coming soon.</p>
+  <div class="project-modal" id="codingProjectModal" aria-hidden="true">
+    <div class="project-modal-backdrop" data-close-project></div>
+
+    <div class="project-modal-card" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+      <button class="project-modal-close" type="button" data-close-project aria-label="Close project details">×</button>
+
+      <div class="modal-top">
+        <div class="modal-media">
+          <div class="modal-logo-tile">
+            <span>S3D</span>
+            <small>Systems</small>
+          </div>
+          <div class="modal-media-lines"></div>
+        </div>
+
+        <div class="modal-summary">
+          <div class="modal-index" id="modalProjectIndex">01 / Robotics</div>
+          <h3 id="modalProjectTitle">UK's First Langar Robot</h3>
+          <p id="modalProjectShort">Experimental community robotics concept for automated langar assistance.</p>
+
+          <div class="modal-tags" id="modalProjectTags">
+            <span>Robotics</span>
+            <span>Automation</span>
+            <span>Community Tech</span>
+          </div>
+
+          <div class="modal-actions" id="modalProjectActions">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7402838688465833984/" target="_blank" rel="noopener noreferrer">View LinkedIn post</a>
+            <button type="button" disabled>Interactive demo coming soon</button>
+          </div>
+        </div>
       </div>
 
-      <div class="card orange reveal">
-        <div class="card-index">02 / System</div>
-        <h3>TwoWay Procurement</h3>
-        <p>PHP/MySQL procurement platform for RFQs, NEGs, suppliers and workflow tracking. Further details coming soon.</p>
+      <div class="modal-body-grid">
+        <article>
+          <span>About the build</span>
+          <p id="modalProjectLong">
+            An experimental robotics concept exploring automated langar assistance, combining software systems,
+            workflow engineering, hardware thinking and community-focused innovation.
+          </p>
+        </article>
+
+        <article>
+          <span>Time frame</span>
+          <p id="modalTimeframe">Concept / prototype phase</p>
+        </article>
+
+        <article>
+          <span>Database used</span>
+          <p id="modalDatabase">Planning stage / not finalised</p>
+        </article>
+
+        <article>
+          <span>Hosting used</span>
+          <p id="modalHosting">Not hosted yet</p>
+        </article>
+
+        <article>
+          <span>Developer time frame</span>
+          <p id="modalDevTime">Ongoing experimental build</p>
+        </article>
+
+        <article>
+          <span>Status</span>
+          <p id="modalStatus">Active / evolving</p>
+        </article>
       </div>
 
-      <div class="card cyan reveal">
-        <div class="card-index">03 / Laravel</div>
-        <h3>Pyroworx</h3>
-        <p>Invoice and delivery-note system with Excel import/export and editable workflows. Further details coming soon.</p>
-      </div>
+      <div class="modal-gallery">
+        <div class="modal-gallery-head">
+          <span>Photo gallery</span>
+          <small>Real images/videos will be added later</small>
+        </div>
 
-      <div class="card purple reveal">
-        <div class="card-index">04 / Websites</div>
-        <h3>Business Websites</h3>
-        <p>Modern websites for businesses, services, portfolios and landing pages. Further details coming soon.</p>
-      </div>
-
-      <div class="card reveal">
-        <div class="card-index">05 / Automation</div>
-        <h3>Automation Tools</h3>
-        <p>Workflow automation, document generation and time-saving business tools. Further details coming soon.</p>
-      </div>
-
-      <div class="card orange reveal">
-        <div class="card-index">06 / Scheduling</div>
-        <h3>Booking & Scheduling</h3>
-        <p>Calendar-linked booking flows, room booking concepts and scheduling systems. Further details coming soon.</p>
+        <div class="gallery-row" id="modalGallery">
+          <div class="gallery-tile"><span>S3D</span></div>
+          <div class="gallery-tile"><span>S3D</span></div>
+          <div class="gallery-tile"><span>S3D</span></div>
+        </div>
       </div>
     </div>
   </div>

@@ -3,116 +3,200 @@
 
 const codingProjects = {
   langar: {
-    index: "01 / Robotics",
+    index: "01 / Robotics + Education",
     title: "UK's First Langar Robot",
-    short: "Experimental community robotics concept for automated langar assistance.",
-    long:
-      "An experimental robotics concept exploring automated langar assistance, combining software systems, workflow engineering, hardware thinking and community-focused innovation. This is one of the strongest S3D-style projects because it combines purpose, culture, engineering and practical automation into one idea.",
-    tags: ["Robotics", "Automation", "Community Tech", "Engineering Concept"],
-    timeframe: "Concept / prototype phase",
-    database: "Planning stage / not finalised",
-    hosting: "Not hosted yet",
-    devTime: "Ongoing experimental build",
-    status: "Active / evolving",
-    primaryLink: "https://www.linkedin.com/feed/update/urn:li:activity:7402838688465833984/",
-    primaryLabel: "View LinkedIn post",
-  },
-
-  vr: {
-    index: "02 / Interactive VR",
-    title: "VR Mobile Walkthrough",
-    short: "Mobile VR experience for exploring 3D spaces through an interactive walkthrough.",
-    long:
-      "A mobile VR walkthrough experience built around turning a 3D environment into something people can explore from their phone. It connects software development, 3D modelling, interaction design and presentation into one immersive experience.",
-    tags: ["Unity", "Mobile VR", "3D Environments", "Interaction Design"],
-    timeframe: "Prototype build",
+    short: "A community robotics project where children designed and programmed a working robot to move food around a langar hall.",
+    long: "Created for Guru Nanak Gurdwara Camberley as part of a drone and robotics class for children aged 5–13. The course introduced safe drone flying using a DJI Neo, then moved into coding, robotics thinking, planning, structure and design. Under my guidance, the children planned, built and programmed a working robot designed to move food around the langar hall. The next stage is to rebuild the concept with stronger components and potentially a microcontroller-based system.",
+    tags: ["Robotics", "Teaching", "Kids Coding", "Community Tech", "DJI Neo"],
+    timeframe: "Course project / prototype",
     database: "No database required",
-    hosting: "Local/mobile demo",
-    devTime: "Built across project iterations",
-    status: "Media/demo coming soon",
-    primaryLink: "",
-    primaryLabel: "Interactive demo coming soon",
+    hosting: "Offline robotics build",
+    devTime: "Built during youth robotics sessions",
+    status: "Prototype complete / future rebuild planned",
+    primaryLink: "https://www.dropbox.com/scl/fo/nmy96gyj7lwjoebpxd87s/AJGYeZD7LgMaGJ0izbHv4Ps?rlkey=9gzju3rk0t5tmg1ytlrr3mibg&st=03pe3ae9&dl=0",
+    primaryLabel: "View Dropbox folder",
+    heroImage: "assets/images/Langarbot/langarbotstuff1.jpeg",
+    gallery: [
+      "assets/images/Langarbot/langarbotstuff1.jpeg",
+      "assets/images/Langarbot/langarbotstuff2.jpeg",
+      "assets/images/Langarbot/langarbotstuff3.jpeg",
+      "assets/images/Langarbot/langarbotstuff5.jpeg",
+      "assets/images/Langarbot/langarbotstuff6.jpeg",
+      "assets/images/Langarbot/langarbotstuff7.jpeg",
+      "assets/images/Langarbot/langarbotstuff8.jpeg"
+    ]
   },
 
   sayvah: {
-    index: "03 / Flutter App",
-    title: "SayVah",
-    short: "Seva-focused mobile app with requests, helpers, trust profiles and admin tools.",
-    long:
-      "SayVah is a real-time seva platform built with a mobile-first product mindset. The app handles help requests, helpers, trust profiles, reporting, admin oversight and future community features.",
-    tags: ["Flutter", "Firebase", "Mobile App", "Community Tech"],
+    index: "02 / Flutter App",
+    title: "UK's First Seva App — SayVah",
+    short: "A real-time seva platform connecting people who need help with people willing to serve.",
+    long: "SayVah is a mobile-first seva platform built to help the sangat and wider community respond to real needs. The app supports help requests, helper browsing, user profiles, anonymous requests, WhatsApp sharing, report tools, Firebase data storage and admin features. It is designed around trust, safety and future community growth, including gurdwara pages, temple admin tools and seva-focused discovery.",
+    tags: ["Flutter", "Firebase", "Firestore", "Mobile App", "Community Platform"],
     timeframe: "Active development",
     database: "Firebase / Firestore",
     hosting: "Firebase services",
-    devTime: "Ongoing build",
+    devTime: "Ongoing product build",
     status: "Testing and improving",
     primaryLink: "#sayvah",
     primaryLabel: "View SayVah section",
+    heroImage: "assets/images/sayvah/v2-homepage.jpeg",
+    gallery: [
+      "assets/images/sayvah/v2-homepage.jpeg"
+    ]
   },
 
   twoway: {
-    index: "04 / Business System",
-    title: "TwoWay Procurement",
-    short: "PHP/MySQL procurement platform for RFQs, NEGs, suppliers and workflow tracking.",
-    long:
-      "A custom procurement platform for managing RFQs, NEGs, purchase orders, supplier workflows, dashboards, dates, alerts and operational tracking. Built to support real internal business workflows.",
-    tags: ["PHP", "MySQL", "Dashboards", "Workflow System"],
+    index: "03 / Business Automation",
+    title: "TwoWay Automation System",
+    short: "A custom procurement system replacing spreadsheet-heavy workflows for a multi-million-pound company.",
+    long: "TwoWay was built to optimise a large company workflow that previously relied heavily on Excel. The system organises RFQs, purchase orders, supplier data, item records, product codes, Oracle-style data, legacy RFQ imports, new PO-style data, dashboard alerts, filtering and search. It also supports supplier and price entry, multiple currencies and the generation of several invoice/document types from one central system.",
+    tags: ["PHP", "MySQL", "Procurement", "Dashboards", "Excel Import", "Automation"],
     timeframe: "Client system build",
     database: "MySQL",
     hosting: "GoDaddy cPanel",
     devTime: "Built and improved across multiple iterations",
     status: "Live system / ongoing improvements",
     primaryLink: "",
-    primaryLabel: "Interactive demo coming soon",
+    primaryLabel: "Private client system",
+    heroImage: "assets/images/Fakeway/fakwWay8.jpg",
+    gallery: [
+      "assets/images/Fakeway/fakwWay1.jpg",
+      "assets/images/Fakeway/fakwWay2.jpg",
+      "assets/images/Fakeway/fakwWay3.jpg",
+      "assets/images/Fakeway/fakwWay4.jpg",
+      "assets/images/Fakeway/fakwWay5.jpg",
+      "assets/images/Fakeway/fakwWay6.jpg",
+      "assets/images/Fakeway/fakwWay7.jpg",
+      "assets/images/Fakeway/fakwWay8.jpg",
+      "assets/images/Fakeway/fakwWay9.jpg",
+      "assets/images/Fakeway/fakwWay10.jpg",
+      "assets/images/Fakeway/fakwWay11.jpg"
+    ]
+  },
+
+  vr: {
+    index: "04 / Mobile VR",
+    title: "VR Mobile Walkthrough",
+    short: "A downloadable Android VR walkthrough of the GNGC library space, built from a blueprint before the room existed.",
+    long: "This Android VR app lets users walk through the planned GNGC library before the room is physically built. The space was designed from a single blueprint, modelled to scale, then converted into a real-time walkthrough. It works with a Google Cardboard-style screen and a Bluetooth controller such as a PS5 controller, Xbox controller or generic gamepad, allowing users to look around and move through the digital room.",
+    tags: ["Android", "VR", "3D Modelling", "Blueprint to App", "Interactive Walkthrough"],
+    timeframe: "Prototype / downloadable demo",
+    database: "No database required",
+    hosting: "Android APK / Dropbox delivery",
+    devTime: "Built across design and app iterations",
+    status: "Functional demo",
+    primaryLink: "https://www.dropbox.com/scl/fo/v4jznibf9xhqj75j7yaym/ADQ-MD7iYnjiC_ZAFbBnsAw?rlkey=eo70iwbr8dg6iejshyk21mq67&st=m1na50q2&dl=0",
+    primaryLabel: "View Dropbox folder",
+    heroImage: "assets/images/VRlibraryApp/vrLibApp1.jpeg",
+    gallery: [
+      "assets/images/VRlibraryApp/vrLibApp1.jpeg",
+      "assets/images/VRlibraryApp/vrLibApp2.jpeg",
+      "assets/images/VRlibraryApp/vrLibApp3.jpeg"
+    ]
   },
 
   pyroworx: {
-    index: "05 / Laravel",
-    title: "Pyroworx Invoice Platform",
-    short: "Invoice and delivery-note system with Excel import/export and editable workflows.",
-    long:
-      "A Laravel-based invoice and delivery note system with Excel import/export, editable order lines, template generation and deployment workflows. Designed to reduce repetitive document handling.",
-    tags: ["Laravel", "SQLite", "Excel Import", "Document Export"],
+    index: "05 / Invoice Automation",
+    title: "Pyroworx Invoice Generator",
+    short: "An invoice and delivery note generator created for a fireworks company to speed up admin and stock workflows.",
+    long: "A custom invoice generator built for a fireworks company to reduce repetitive admin work. The system follows the company’s existing order form structure, tracks stock and inventory, stores order notes and generates two key outputs: an invoice and a delivery note. It was designed to make the business process faster, cleaner and less dependent on manual document editing.",
+    tags: ["Laravel", "Invoices", "Delivery Notes", "Inventory", "Business Automation"],
     timeframe: "Client system build",
-    database: "SQLite / Laravel database structure",
-    hosting: "GoDaddy shared hosting",
-    devTime: "Built across staged iterations",
-    status: "Functional system / improving",
+    database: "Laravel database structure",
+    hosting: "Client hosting / shared hosting setup",
+    devTime: "Built across staged workflow improvements",
+    status: "Functional internal system",
     primaryLink: "",
-    primaryLabel: "Interactive demo coming soon",
+    primaryLabel: "Private client system",
+    heroImage: "",
+    gallery: []
   },
 
-  websites: {
-    index: "06 / Websites",
-    title: "Business Websites",
-    short: "Modern sites, portfolios, landing pages and service-based digital presence.",
-    long:
-      "Modern websites and landing pages built around strong messaging, responsive layouts, visual polish and clear user journeys. This includes business pages, portfolios and service-led websites.",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    timeframe: "Project-dependent",
-    database: "Usually none / optional CMS",
-    hosting: "GitHub Pages / client hosting / cPanel",
-    devTime: "Usually days to weeks depending on scope",
-    status: "Ongoing service area",
-    primaryLink: "",
-    primaryLabel: "Interactive demo coming soon",
+  gngc: {
+    index: "06 / Operations Automation",
+    title: "GNGC Automation Tools",
+    short: "Booking, scheduling, classroom approval and langar delivery automations for the first historic Gurdwara in Surrey.",
+    long: "A collection of automation tools built for the newly built first historic Gurdwara in Surrey. This included booking systems, website improvements, scheduling tools, classroom approval workflows and Office 365 automations using Outlook, Power Automate, Google Sheets, Forms and Bookings. New bookings could appear directly on calendars, and the langar food delivery section could update from an online CSV file to reduce manual admin.",
+    tags: ["Power Automate", "Office 365", "Bookings", "Google Sheets", "Scheduling", "CSV Automation"],
+    timeframe: "Multiple operational projects",
+    database: "Google Sheets / Microsoft 365 / CSV-based data",
+    hosting: "Website + cloud automation tools",
+    devTime: "Built across several improvement phases",
+    status: "Live operational tools",
+    primaryLink: "https://www.dropbox.com/scl/fo/iqjdbh8mfzpjmnjhxpxie/AJtQeXcMG8zEjhyDaQTmu40?rlkey=li49q3c3hryaik43gey7ewfyj&st=03270enz&dl=0",
+    primaryLabel: "View Dropbox folder",
+    heroImage: "assets/images/GNGCschedule/schedulestuff1.jpg",
+    gallery: [
+      "assets/images/GNGCschedule/schedulestuff1.jpg",
+      "assets/images/GNGCschedule/schedulestuff2.jpg",
+      "assets/images/GNGCschedule/schedulestuff3.jpg",
+      "assets/images/GNGCschedule/schedulestuff4.jpg",
+      "assets/images/GNGCschedule/schedulestuff5.jpg"
+    ]
   },
 
-  automation: {
-    index: "07 / Automation",
-    title: "Automation Tools",
-    short: "Workflow automation, document generation and time-saving internal systems.",
-    long:
-      "Automation tools for reducing repetitive admin, improving workflows, generating documents and connecting business processes. These projects focus on practical efficiency rather than flashy features.",
-    tags: ["Automation", "Documents", "Spreadsheets", "Business Tools"],
-    timeframe: "Project-dependent",
-    database: "Depends on system",
-    hosting: "Local, cloud or client hosting",
-    devTime: "Usually days to weeks depending on workflow",
-    status: "Ongoing service area",
-    primaryLink: "",
-    primaryLabel: "Interactive demo coming soon",
+  bevells: {
+    index: "07 / Company Website",
+    title: "Bevells Company Letting",
+    short: "A professional company website designed to give Bevells a clean, modern and trustworthy online presence.",
+    long: "A company website designed for Bevells to present the business clearly online. The site focuses on simple navigation, clear service communication, professional visuals and a responsive layout that works across desktop and mobile.",
+    tags: ["Website Design", "Responsive Layout", "Company Site", "Frontend"],
+    timeframe: "Company website project",
+    database: "No database required",
+    hosting: "Live client website",
+    devTime: "Built as a focused website project",
+    status: "Live",
+    primaryLink: "https://bevells.com/",
+    primaryLabel: "Visit live site",
+    heroImage: "assets/images/Bevells/Bevells2.jpg",
+    gallery: [
+      "assets/images/Bevells/Bevells2.jpg",
+      "assets/images/Bevells/Bevells1.jpg"
+    ]
   },
+
+  brickburry: {
+    index: "08 / Company Website",
+    title: "Brickburry Services",
+    short: "A polished business website designed for Brickburry Services with a clean service-led structure.",
+    long: "A company website designed for Brickburry Services, focused on presenting the business clearly with a professional layout, responsive structure and clean frontend build. The aim was to give the company a stronger digital presence and make the service offering easier to understand.",
+    tags: ["Website Design", "Responsive", "Business Website", "Frontend Build"],
+    timeframe: "Company website project",
+    database: "No database required",
+    hosting: "Live client website",
+    devTime: "Built as a focused website project",
+    status: "Live",
+    primaryLink: "https://brickburry.com/",
+    primaryLabel: "Visit live site",
+    heroImage: "assets/images/Brickburry/Brickburry1.jpg",
+    gallery: [
+      "assets/images/Brickburry/Brickburry1.jpg",
+      "assets/images/Brickburry/Brickburry2.jpg"
+    ]
+  },
+
+  cookiehouse: {
+    index: "09 / Interactive Demo",
+    title: "Cookie House Property Website",
+    short: "A privacy-safe interactive mockup of a custom-coded property website, redesigned around cookies.",
+    long: "An interactive demo of a custom-coded property website. The original project was created for a property and architecture client, but due to privacy, the public-facing version was redesigned around cookies. The structure, layout, interactive features and general user experience are still visible. Access to the real version can be requested privately after client approval.",
+    tags: ["Custom Coded", "Interactive Demo", "Property Website", "Frontend", "Privacy-Safe Case Study"],
+    timeframe: "Custom website demo",
+    database: "No database required",
+    hosting: "GitHub Pages",
+    devTime: "Built as a custom frontend project",
+    status: "Public demo live",
+    primaryLink: "https://rajsingh69.github.io/s3d-cookie-house-demo/index.html",
+    primaryLabel: "Open interactive demo",
+    heroImage: "assets/images/CookieHouse/cookieHouse1.jpg",
+    gallery: [
+      "assets/images/CookieHouse/cookieHouse1.jpg",
+      "assets/images/CookieHouse/cookieHouse2.jpg",
+      "assets/images/CookieHouse/cookieHouse3.jpg",
+      "assets/images/CookieHouse/cookieHouse4.jpg"
+    ]
+  }
 };
 
 function initialiseCodingPortfolio() {
@@ -140,6 +224,7 @@ function initialiseCodingPortfolio() {
     status: codingSection.querySelector("#modalStatus"),
     actions: codingSection.querySelector("#modalProjectActions"),
     gallery: codingSection.querySelector("#modalGallery"),
+    heroImage: codingSection.querySelector("#modalHeroImage")
   };
 
   function openProject(projectKey) {
@@ -158,13 +243,25 @@ function initialiseCodingPortfolio() {
 
     fields.tags.innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
 
+    if (fields.heroImage) {
+      if (project.heroImage) {
+        fields.heroImage.src = project.heroImage;
+        fields.heroImage.alt = `${project.title} preview image`;
+        fields.heroImage.style.display = "block";
+      } else {
+        fields.heroImage.removeAttribute("src");
+        fields.heroImage.alt = "";
+        fields.heroImage.style.display = "none";
+      }
+    }
+
     if (project.primaryLink) {
       const isExternal = project.primaryLink.startsWith("http");
+
       fields.actions.innerHTML = `
         <a href="${project.primaryLink}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ""}>
           ${project.primaryLabel}
         </a>
-        <button type="button" disabled>Interactive demo coming soon</button>
       `;
     } else {
       fields.actions.innerHTML = `
@@ -172,11 +269,23 @@ function initialiseCodingPortfolio() {
       `;
     }
 
-    fields.gallery.innerHTML = `
-      <div class="gallery-tile"><span>S3D</span></div>
-      <div class="gallery-tile"><span>S3D</span></div>
-      <div class="gallery-tile"><span>S3D</span></div>
-    `;
+    if (project.gallery && project.gallery.length > 0) {
+      fields.gallery.innerHTML = project.gallery
+        .map(
+          (image, index) => `
+            <div class="gallery-tile">
+              <img src="${image}" alt="${project.title} gallery image ${index + 1}">
+            </div>
+          `
+        )
+        .join("");
+    } else {
+      fields.gallery.innerHTML = `
+        <div class="gallery-tile"><span>S3D</span></div>
+        <div class="gallery-tile"><span>Private</span></div>
+        <div class="gallery-tile"><span>Project</span></div>
+      `;
+    }
 
     projectButtons.forEach((button) => {
       button.classList.toggle("active", button.dataset.project === projectKey);
@@ -214,3 +323,55 @@ function initialiseCodingPortfolio() {
 
 document.addEventListener("s3d:sections-loaded", initialiseCodingPortfolio);
 document.addEventListener("DOMContentLoaded", initialiseCodingPortfolio);
+
+(function () {
+  function setupCodingImageLightbox() {
+    if (document.querySelector(".coding-image-lightbox")) return;
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "coding-image-lightbox";
+
+    lightbox.innerHTML = `
+      <button class="coding-image-lightbox-close" aria-label="Close image preview">&times;</button>
+      <img src="" alt="Expanded project image">
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const image = lightbox.querySelector("img");
+    const close = lightbox.querySelector(".coding-image-lightbox-close");
+
+    document.addEventListener("click", function (event) {
+      const clickedImage = event.target.closest(".gallery-tile img, .modal-hero-image, .featured-media img");
+
+      if (!clickedImage) return;
+
+      image.src = clickedImage.src;
+      image.alt = clickedImage.alt || "Expanded project image";
+
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      image.src = "";
+      document.body.style.overflow = "";
+    }
+
+    close.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox.classList.contains("active")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener("s3d:sections-loaded", setupCodingImageLightbox);
+  document.addEventListener("DOMContentLoaded", setupCodingImageLightbox);
+})();

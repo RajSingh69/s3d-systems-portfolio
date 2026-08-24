@@ -1,0 +1,352 @@
+﻿.quote-page {
+  min-height: 100vh;
+}
+
+.quote-page nav {
+  position: sticky;
+  top: 0;
+}
+
+.quote-page .brand {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.quote-main {
+  width: min(1180px, calc(100% - 56px));
+  margin: auto;
+  padding: 58px 0 72px;
+}
+
+.quote-shell {
+  display: grid;
+  grid-template-columns: 0.74fr 1.26fr;
+  gap: 38px;
+  align-items: start;
+  padding: 30px 0 18px;
+}
+
+.quote-intro {
+  position: sticky;
+  top: 112px;
+}
+
+.quote-intro h1,
+.thank-you-panel h1 {
+  max-width: 620px;
+  font-size: clamp(42px, 5.8vw, 74px);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+.quote-intro .panel-copy,
+.thank-you-panel .panel-copy {
+  margin-top: 24px;
+  max-width: 560px;
+}
+
+.quote-intro .panel-copy {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.quote-contact-note {
+  margin-top: 28px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(0,216,255,0.34);
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.quote-contact-note span {
+  color: var(--soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.quote-contact-note a {
+  color: var(--saffron);
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.quote-form,
+.thank-you-panel {
+  position: relative;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(0,216,255,0.2);
+  background:
+    linear-gradient(135deg, rgba(0,216,255,0.07), transparent 38%),
+    rgba(5,10,19,0.66);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.34), inset 0 0 70px rgba(0,216,255,0.035);
+  overflow: hidden;
+}
+
+.quote-form::before,
+.thank-you-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(135deg, black, transparent 68%);
+  opacity: 0.32;
+}
+
+.quote-form > *,
+.thank-you-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field-group,
+.option-fieldset {
+  display: grid;
+  gap: 8px;
+}
+
+.field-full,
+.option-fieldset {
+  margin-top: 20px;
+}
+
+.field-group label,
+.option-fieldset legend {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.field-group label span,
+.option-fieldset legend span {
+  color: var(--saffron);
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.055);
+  color: var(--text);
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.field-group textarea {
+  min-height: 156px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.field-group select {
+  appearance: none;
+  background-color: rgba(5,10,19,0.84);
+  color: var(--text);
+  background-image: linear-gradient(45deg, transparent 50%, var(--cyan) 50%), linear-gradient(135deg, var(--cyan) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 20px, calc(100% - 13px) 20px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.field-group select option {
+  background-color: #070d18;
+  color: var(--text);
+}
+
+.field-group select option:checked,
+.field-group select option:hover,
+.field-group select option:focus {
+  background-color: rgba(255,173,51,0.22);
+  color: var(--text);
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  outline: none;
+  border-color: rgba(0,216,255,0.62);
+  box-shadow: 0 0 0 3px rgba(0,216,255,0.12);
+  background: rgba(255,255,255,0.075);
+}
+
+.field-group.is-invalid input,
+.field-group.is-invalid textarea,
+.option-fieldset.is-invalid {
+  border-color: rgba(255,122,26,0.72);
+}
+
+.option-fieldset {
+  border: 1px solid rgba(255,255,255,0.11);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.035);
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.option-grid label {
+  cursor: pointer;
+}
+
+.option-grid input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.option-grid span {
+  min-height: 44px;
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.option-grid input:checked + span {
+  border-color: rgba(255,173,51,0.72);
+  background: rgba(255,173,51,0.13);
+  color: var(--text);
+}
+
+.option-grid input:focus-visible + span {
+  outline: 2px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+.field-error {
+  min-height: 16px;
+  color: #ffb16b;
+  font-size: 11px;
+}
+
+.form-status {
+  min-height: 22px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.form-status.is-error {
+  color: #ffb16b;
+}
+
+.form-status.is-success {
+  color: var(--green);
+}
+
+.quote-submit {
+  margin-top: 18px;
+  gap: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.quote-submit:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
+}
+
+.website-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.thank-you-main {
+  min-height: calc(100vh - 120px);
+  display: grid;
+  align-items: center;
+}
+
+.thank-you-panel {
+  max-width: 760px;
+}
+
+.thank-you-panel .btn {
+  margin-top: 28px;
+}
+
+@media(max-width: 980px) {
+  .quote-main {
+    width: min(100% - 32px, 1180px);
+    padding: 36px 0 54px;
+  }
+
+  .quote-shell {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .quote-intro {
+    position: relative;
+    top: auto;
+  }
+
+  .quote-intro h1,
+  .thank-you-panel h1 {
+    font-size: clamp(38px, 9vw, 58px);
+  }
+}
+
+@media(max-width: 680px) {
+  .quote-page .nav-links {
+    display: none;
+  }
+
+  .quote-main {
+    width: min(100% - 24px, 1180px);
+    padding: 28px 0 42px;
+  }
+
+  .quote-shell {
+    padding-top: 10px;
+  }
+
+  .quote-form,
+  .thank-you-panel {
+    padding: 18px;
+  }
+
+  .form-grid,
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-submit {
+    width: 100%;
+  }
+}

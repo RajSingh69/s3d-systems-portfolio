@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Start a project with S3D Systems. Request a quote for custom software, web apps, mobile apps, automation, websites, business systems, 3D design and drone work." />
+
+  <title>Start a Project | S3D Systems</title>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/quote.css" />
+</head>
+<body class="quote-page">
+  <div class="hero-bg-video">
+    <video src="../assets/videos/WebsiteHeroVid.mp4" autoplay muted loop playsinline></video>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="noise"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="S3D Systems home">
+        <img src="../assets/images/s3dSystemsLogo.png" alt="S3D Systems Logo" class="brand-logo" />
+        <div class="brand-text">
+          <strong>Rajan Bhamra</strong>
+          <span>S3D Systems</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="/#about">About</a>
+        <a href="/#sayvah">SayVah</a>
+        <a href="/#coding">Coding</a>
+        <a href="/#drone">Drone</a>
+        <a href="/#models">3D</a>
+        <a href="/start-a-project/" class="nav-cta">Start a Project</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="quote-main">
+    <section class="quote-shell">
+      <div class="quote-intro reveal active">
+        <div class="eyebrow">Start a Project</div>
+        <h1>Have something in mind?<br />Let's build it.</h1>
+        <p class="panel-copy">
+          Tell me a little about what you need. Whether it's a new idea, an existing system that needs improving, or a process you want to automate, I'll take a look and get back to you.
+        </p>
+        <div class="quote-contact-note">
+          <span>Prefer email?</span>
+          <a href="mailto:rajan@s3dsystems.com">rajan@s3dsystems.com</a>
+        </div>
+      </div>
+
+      <form class="quote-form reveal active" id="projectEnquiryForm" novalidate>
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="name">Name <span>*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+            <p class="field-error" id="nameError"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email <span>*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <p class="field-error" id="emailError"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            <p class="field-error" id="phoneError"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="company">Company / Organisation</label>
+            <input id="company" name="company" type="text" autocomplete="organization" />
+            <p class="field-error" id="companyError"></p>
+          </div>
+        </div>
+
+        <fieldset class="option-fieldset" data-fieldset="project_type">
+          <legend>What do you need? <span>*</span></legend>
+          <div class="option-grid">
+            <label><input type="radio" name="project_type" value="Custom Software" required /> <span>Custom Software</span></label>
+            <label><input type="radio" name="project_type" value="Web App" /> <span>Web App</span></label>
+            <label><input type="radio" name="project_type" value="Mobile App" /> <span>Mobile App</span></label>
+            <label><input type="radio" name="project_type" value="Website" /> <span>Website</span></label>
+            <label><input type="radio" name="project_type" value="AI / Automation" /> <span>AI / Automation</span></label>
+            <label><input type="radio" name="project_type" value="Business System" /> <span>Business System</span></label>
+            <label><input type="radio" name="project_type" value="3D Design" /> <span>3D Design</span></label>
+            <label><input type="radio" name="project_type" value="Drone / Aerial" /> <span>Drone / Aerial</span></label>
+            <label><input type="radio" name="project_type" value="Something Else" /> <span>Something Else</span></label>
+          </div>
+          <p class="field-error" id="project_typeError"></p>
+        </fieldset>
+
+        <div class="field-group field-full">
+          <label for="description">Project Description <span>*</span></label>
+          <textarea id="description" name="message" rows="7" placeholder="Tell me what you're looking to build, improve or automate..." required></textarea>
+          <p class="field-error" id="messageError"></p>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select a range</option>
+              <option>Under £1,000</option>
+              <option>£1,000 - £3,000</option>
+              <option>£3,000 - £5,000</option>
+              <option>£5,000 - £10,000</option>
+              <option>£10,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="timeframe">Ideal Timeframe</label>
+            <select id="timeframe" name="timeframe">
+              <option value="">Select a timeframe</option>
+              <option>As soon as possible</option>
+              <option>Within 1 month</option>
+              <option>1-3 months</option>
+              <option>3-6 months</option>
+              <option>Flexible / not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="New S3D Project Enquiry" />
+        <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+        <button class="btn primary quote-submit" type="submit">
+          <span>Send Project Enquiry</span>
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/quote.js"></script>
+</body>
+</html>

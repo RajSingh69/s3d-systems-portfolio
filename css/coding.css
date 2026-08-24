@@ -805,3 +805,78 @@
     transition: none;
   }
 }
+/* Light polish: align project spacing and touch targets without changing layout */
+.coding-showcase-card,
+.coding-project-card,
+.coding-stats div,
+.modal-body-grid article,
+.gallery-tile {
+  border-radius: 18px;
+}
+
+.coding-head {
+  margin-bottom: clamp(22px, 2.4vw, 30px);
+}
+
+.coding-group-head {
+  margin: clamp(28px, 3vw, 34px) 0 14px;
+}
+
+.coding-feature-grid,
+.coding-grid-projects,
+.website-grid,
+.modal-body-grid,
+.gallery-row {
+  gap: 16px;
+}
+
+.coding-showcase-card,
+.coding-project-card,
+.project-modal-close,
+.coding-image-lightbox-close {
+  min-height: 44px;
+}
+
+.showcase-copy p,
+.coding-project-card p,
+.modal-summary p,
+.modal-body-grid p {
+  line-height: 1.62;
+}
+
+@media (max-width: 860px) {
+  .coding-section {
+    padding: 42px 0;
+  }
+
+  .coding-wide-wrap {
+    width: min(100% - 24px, 1500px);
+  }
+
+  .coding-panel {
+    padding: 18px;
+  }
+
+  .coding-showcase-card,
+  .coding-project-card {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coding-wide-wrap {
+    width: min(100% - 22px, 1500px);
+  }
+
+  .coding-head h2 {
+    line-height: 0.98;
+  }
+
+  .showcase-media {
+    height: 200px;
+  }
+
+  .phone-media {
+    height: 280px;
+  }
+}

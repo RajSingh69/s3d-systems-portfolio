@@ -338,3 +338,42 @@
   }
 
 }
+/* Light polish: consistent model section spacing and mobile image rhythm */
+.models-head {
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.model-project {
+  gap: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(4rem, 6vw, 6.5rem);
+  border-radius: 24px;
+}
+
+.project-gallery {
+  gap: 1rem;
+}
+
+.project-gallery img,
+.saber-thumb {
+  border-radius: 18px;
+}
+
+.project-tags {
+  gap: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .model-project {
+    padding: 1.35rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .project-info h3 {
+    line-height: 1.12;
+    margin-bottom: 1.15rem;
+  }
+
+  .project-tags span {
+    padding: 0.62rem 0.82rem;
+  }
+}

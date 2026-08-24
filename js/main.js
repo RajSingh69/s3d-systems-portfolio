@@ -104,17 +104,33 @@ function initialiseSplitWords() {
   document.querySelectorAll(".split-words").forEach((heading) => {
     if (heading.dataset.splitComplete === "true") return;
 
-    const words = heading.textContent.trim().split(" ");
+    const sourceLines = [...heading.querySelectorAll(":scope > .hero-title-line")];
+    const lines = sourceLines.length
+      ? sourceLines.map((line) => line.textContent.trim())
+      : [heading.textContent.trim()];
+
     heading.textContent = "";
 
-    words.forEach((word, index) => {
-      const span = document.createElement("span");
+    let wordIndex = 0;
 
-      span.className = "word";
-      span.style.setProperty("--i", index);
-      span.textContent = word + " ";
+    lines.forEach((lineText) => {
+      const line = sourceLines.length ? document.createElement("span") : heading;
 
-      heading.appendChild(span);
+      if (sourceLines.length) {
+        line.className = "hero-title-line";
+        heading.appendChild(line);
+      }
+
+      lineText.split(/\s+/).forEach((word) => {
+        const span = document.createElement("span");
+
+        span.className = "word";
+        span.style.setProperty("--i", wordIndex);
+        span.textContent = word;
+
+        line.appendChild(span);
+        wordIndex += 1;
+      });
     });
 
     heading.dataset.splitComplete = "true";

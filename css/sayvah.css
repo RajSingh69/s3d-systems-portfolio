@@ -811,3 +811,117 @@
     animation: none;
   }
 }
+
+/* Light polish: smoother mobile spacing while preserving the SayVah design */
+.sayvah-actions,
+.sayvah-stats,
+.flow-grid,
+.feature-list,
+.screen-rail {
+  gap: 14px;
+}
+
+.sayvah-btn,
+.rail-btn,
+.timeline-dot {
+  min-height: 44px;
+}
+
+.sayvah-panel,
+.screens-section,
+.flow-card,
+.feature-list div,
+.screen-card,
+.sayvah-stats div {
+  border-radius: 22px;
+}
+
+@media (max-width: 720px) {
+  .sayvah-wrap {
+    width: min(100% - 24px, 1220px);
+  }
+
+  .sayvah-copy h2 {
+    line-height: 0.96;
+  }
+
+  .sayvah-copy p {
+    margin: 22px 0 26px;
+  }
+
+  .sayvah-btn {
+    width: 100%;
+  }
+
+  .sayvah-visual {
+    min-height: 590px;
+  }
+}
+
+/* Store links for existing SayVah actions */
+.sayvah-btn.store-btn {
+  min-height: 44px;
+  padding-inline: 16px;
+  font-size: 0.88rem;
+  border-color: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.065);
+}
+
+
+/* Targeted SayVah CTA hierarchy */
+.sayvah-actions {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+
+.sayvah-download-row,
+.sayvah-section-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sayvah-btn.store-btn {
+  min-height: 56px;
+  padding: 0 22px;
+  border-color: rgba(255, 190, 70, 0.72);
+  background:
+    linear-gradient(135deg, rgba(255, 205, 84, 0.98), rgba(255, 160, 20, 0.9));
+  color: #07111f;
+  box-shadow:
+    0 16px 42px rgba(255, 172, 36, 0.26),
+    inset 0 1px 0 rgba(255,255,255,0.34);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.sayvah-btn.store-btn:hover {
+  border-color: rgba(255, 220, 110, 0.9);
+  box-shadow:
+    0 20px 54px rgba(255, 172, 36, 0.36),
+    inset 0 1px 0 rgba(255,255,255,0.42);
+}
+
+.sayvah-website-btn {
+  width: max-content;
+  border-color: rgba(103,234,255,0.34);
+  background: linear-gradient(135deg, rgba(103,234,255,0.16), rgba(12, 25, 45, 0.78));
+  box-shadow: 0 14px 34px rgba(103,234,255,0.11);
+}
+
+.sayvah-website-btn span {
+  margin-left: 8px;
+}
+
+@media (max-width: 720px) {
+  .sayvah-download-row,
+  .sayvah-section-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .sayvah-website-btn {
+    width: 100%;
+  }
+}

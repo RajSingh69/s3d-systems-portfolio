@@ -1,12 +1,13 @@
 (() => {
-  const STORAGE_KEY = "s3d_google_consent";
-  const grantedConsent = {
+  const consentConfig = window.s3dGoogleConsent || {};
+  const STORAGE_KEY = consentConfig.storageKey || "s3d_google_consent";
+  const grantedConsent = consentConfig.grantedConsent || {
     ad_storage: "granted",
     analytics_storage: "granted",
     ad_user_data: "granted",
     ad_personalization: "granted"
   };
-  const deniedConsent = {
+  const deniedConsent = consentConfig.deniedConsent || {
     ad_storage: "denied",
     analytics_storage: "denied",
     ad_user_data: "denied",

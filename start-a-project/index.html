@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted',
-      wait_for_update: 500
-    });
-    gtag('set', 'ads_data_redaction', true);
-    try {
-      var savedGoogleConsent = window.localStorage.getItem('s3d_google_consent');
-      if (savedGoogleConsent === 'granted') {
-        gtag('consent', 'update', {
-          ad_storage: 'granted',
-          analytics_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted'
-        });
-      }
-    } catch (error) {
-      // Keep default denied consent if the saved preference cannot be read.
-    }
-  </script>
+  <script src="../js/google-consent-init.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18408053394"></script>
   <script>
     gtag('js', new Date());

@@ -134,3 +134,83 @@ form?.addEventListener("submit", async (event) => {
     submitButton.querySelector("span").textContent = "Send Project Enquiry";
   }
 });
+// Start-a-project landing page reveal system. This is progressive enhancement only;
+// the page remains visible and usable if JavaScript does not run.
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const sections = Array.from(document.querySelectorAll("[data-reveal-section]"));
+
+  document.documentElement.classList.add("js-reveal");
+
+  document.querySelectorAll("[data-split-words]").forEach((heading) => {
+    if (heading.dataset.wordsReady === "true") {
+      return;
+    }
+
+    const words = heading.textContent.trim().split(/\s+/);
+    heading.textContent = "";
+
+    words.forEach((word, index) => {
+      const span = document.createElement("span");
+      span.className = "reveal-word";
+      span.textContent = word;
+      span.style.setProperty("--reveal-delay", `${120 + index * 80}ms`);
+      heading.appendChild(span);
+    });
+
+    heading.dataset.wordsReady = "true";
+  });
+
+  sections.forEach((section) => {
+    section.querySelectorAll(".reveal-item").forEach((item, index) => {
+      item.style.setProperty("--reveal-delay", `${index * 110}ms`);
+    });
+
+    section.querySelectorAll(".reveal-card").forEach((card, index) => {
+      card.style.setProperty("--reveal-delay", `${220 + index * 110}ms`);
+    });
+  });
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    sections.forEach((section) => section.classList.add("is-active"));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -16% 0px", threshold: 0.16 });
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  const cursorGlow = document.querySelector(".quote-cursor-glow");
+  const canUseCursorGlow = cursorGlow && !reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (canUseCursorGlow) {
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    const moveGlow = () => {
+      currentX += (targetX - currentX) * 0.16;
+      currentY += (targetY - currentY) * 0.16;
+      cursorGlow.style.transform = `translate3d(${currentX - 190}px, ${currentY - 190}px, 0)`;
+      requestAnimationFrame(moveGlow);
+    };
+
+    window.addEventListener("pointermove", (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+      cursorGlow.classList.add("is-visible");
+    }, { passive: true });
+
+    document.addEventListener("mouseleave", () => cursorGlow.classList.remove("is-visible"));
+    document.addEventListener("mouseenter", () => cursorGlow.classList.add("is-visible"));
+
+    moveGlow();
+  }
+})();

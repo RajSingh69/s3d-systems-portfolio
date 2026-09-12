@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script src="../js/google-consent-init.js"></script>
@@ -9,7 +9,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Start a project with S3D Systems. Request a quote for custom software, web apps, mobile apps, automation, websites, business systems, 3D design and drone work." />
+  <meta name="description" content="Start a project with S3D Systems. Request a quote for custom software, web apps, mobile apps, automation, websites and internal business systems." />
 
   <title>Start a Project | S3D Systems</title>
 
@@ -23,6 +23,7 @@
 
   <div class="scroll-progress" id="scrollProgress"></div>
   <div class="noise"></div>
+  <div class="quote-cursor-glow" aria-hidden="true"></div>
 
   <nav>
     <div class="nav-inner">
@@ -46,106 +47,115 @@
   </nav>
 
   <main class="quote-main">
-    <section class="portfolio-trust" aria-label="S3D Systems portfolio preview">
-      <a class="portfolio-banner reveal active" href="/#coding">
-        <div class="portfolio-banner-copy">
-          <span class="portfolio-banner-eyebrow">New here?</span>
-          <h2>See what I build.</h2>
-          <p>
-            Take a quick look through the full S3D Systems portfolio before telling me about your project.
-          </p>
-        </div>
-        <span class="portfolio-banner-cta">View Full Portfolio <span aria-hidden="true">&rarr;</span></span>
-      </a>
-
-      <div class="enquiry-jump-cta">
-        <span>Ready to build something?</span>
-        <div class="enquiry-jump-actions">
-          <a class="enquiry-primary-cta" href="#project-enquiry">Tell Me About Your Project <span aria-hidden="true">&rarr;</span></a>
-          <a class="enquiry-secondary-cta" href="/#coding">View Full Portfolio <span aria-hidden="true">&rarr;</span></a>
+    <section class="project-hero quote-section is-active" aria-labelledby="project-hero-title" data-reveal-section>
+      <div class="technical-field" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="project-hero-copy">
+        <div class="quote-eyebrow reveal-item">Custom Software / Apps / Business Systems</div>
+        <h1 id="project-hero-title" class="word-reveal" data-split-words>Software built around your business.</h1>
+        <p class="quote-lead reveal-item">
+          S3D Systems designs and builds custom software, web apps, mobile apps, automation tools and internal business systems for organisations that need something more specific than off-the-shelf software.
+        </p>
+        <div class="quote-actions reveal-item">
+          <a class="quote-btn quote-btn-primary" href="#project-enquiry">Tell Me About Your Project <span aria-hidden="true">&rarr;</span></a>
+          <a class="quote-btn quote-btn-secondary" href="#selected-work">See Recent Work <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
-
-      <div class="project-preview reveal active">
-        <div class="project-preview-head">
-          <div>
-            <span>A few examples of my work</span>
-            <h2>Real builds across systems, apps, websites, media and 3D.</h2>
-          </div>
-          <p>
-            Software, apps, websites, aerial media and 3D design - all built through S3D Systems.
-          </p>
-        </div>
-
-        <div class="project-preview-grid">
-          <a class="trust-project-card" href="/#coding">
-            <div class="trust-project-media">
-              <img src="../assets/images/Fakeway/fakwWay8.jpg" alt="Two Way Automation System dashboard screenshot" />
-            </div>
-            <div class="trust-project-copy">
-              <span>Business Automation / Internal Systems</span>
-              <h3>Two Way Automation System</h3>
-              <p>Custom operational software built to streamline business processes, documents and internal workflows.</p>
-              <span class="trust-project-link">View Project <span aria-hidden="true">&rarr;</span></span>
-            </div>
-          </a>
-
-          <a class="trust-project-card" href="/#sayvah">
-            <div class="trust-project-media trust-phone-media">
-              <img src="../assets/images/sayvah/v2-homepage.jpeg" alt="SayVah community service app screenshot" />
-            </div>
-            <div class="trust-project-copy">
-              <span>Mobile App Development</span>
-              <h3>Community Service App / System</h3>
-              <p>SayVah demonstrates iOS and Android community application development for real-time seva support.</p>
-              <span class="trust-project-link">View Project <span aria-hidden="true">&rarr;</span></span>
-            </div>
-          </a>
-
-          <a class="trust-project-card" href="/#coding">
-            <div class="trust-project-media">
-              <img src="../assets/images/Bevells/Bevells2.jpg" alt="Bevells website screenshot" />
-            </div>
-            <div class="trust-project-copy">
-              <span>Website Design &amp; Development</span>
-              <h3>Bevells</h3>
-              <p>A professional company website designed to present the business clearly online.</p>
-              <span class="trust-project-link">View Project <span aria-hidden="true">&rarr;</span></span>
-            </div>
-          </a>
-
-          <a class="trust-project-card" href="/#drone">
-            <div class="trust-project-media">
-              <video src="../assets/videos/EkNiwasIndoorVid.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Ek Niwas Indoors aerial media preview"></video>
-            </div>
-            <div class="trust-project-copy">
-              <span>Drone / Aerial Media</span>
-              <h3>Ek Niwas Indoors</h3>
-              <p>Indoor temple shoot focused on calm movement, detail shots and respectful cinematic atmosphere.</p>
-              <span class="trust-project-link">View Project <span aria-hidden="true">&rarr;</span></span>
-            </div>
-          </a>
-
-          <a class="trust-project-card" href="/#models">
-            <div class="trust-project-media">
-              <img src="../assets/images/GurdwaraLibraryOne.jpg" alt="Sikh temple library 3D render" />
-            </div>
-            <div class="trust-project-copy">
-              <span>3D Modelling &amp; Design</span>
-              <h3>Sikh Temple Library Design</h3>
-              <p>Architectural visualisation created to preview atmosphere, layout, spacing and flow.</p>
-              <span class="trust-project-link">View Project <span aria-hidden="true">&rarr;</span></span>
-            </div>
-          </a>
-        </div>
+      <div class="hero-proof reveal-item" aria-label="S3D Systems project types">
+        <div><span>Builds</span><strong>Software</strong></div>
+        <div><span>Platforms</span><strong>Web + Mobile</strong></div>
+        <div><span>Systems</span><strong>Automation</strong></div>
       </div>
     </section>
-    <section class="quote-shell" id="project-enquiry">
-      <div class="quote-intro reveal active">
-        <div class="eyebrow">Start a Project</div>
-        <h1>Have something in mind?<br />Let's build it.</h1>
+
+    <section class="capabilities-section quote-section" aria-labelledby="capabilities-title" data-reveal-section>
+      <div class="quote-section-head">
+        <div>
+          <div class="quote-eyebrow reveal-item">Capabilities</div>
+          <h2 id="capabilities-title" class="word-reveal" data-split-words>What can I build for you?</h2>
+        </div>
+        <p class="reveal-item">Projects can range from individual workflow tools to complete digital platforms built around how the organisation actually operates.</p>
+      </div>
+      <div class="service-grid reveal-group">
+        <article class="service-card reveal-card"><span>01</span><h3>Custom Software</h3><p>Software designed specifically around a company's workflow, requirements and processes.</p></article>
+        <article class="service-card reveal-card"><span>02</span><h3>Web Applications</h3><p>Browser-based systems, portals, dashboards and tools accessible wherever the business needs them.</p></article>
+        <article class="service-card reveal-card"><span>03</span><h3>Mobile Apps</h3><p>iOS and Android applications built around real user and business requirements.</p></article>
+        <article class="service-card reveal-card"><span>04</span><h3>Automation &amp; Business Systems</h3><p>Replace repetitive admin, disconnected spreadsheets and manual processes with software built around the way the organisation works.</p></article>
+        <article class="service-card reveal-card service-card-wide"><span>05</span><h3>Websites &amp; Digital Platforms</h3><p>Modern websites and digital platforms designed around the actual objective of the organisation.</p></article>
+      </div>
+    </section>
+
+    <section class="why-section quote-section" aria-labelledby="why-title" data-reveal-section>
+      <div class="quote-section-head compact-head">
+        <div>
+          <div class="quote-eyebrow reveal-item">Why S3D Systems</div>
+          <h2 id="why-title" class="word-reveal" data-split-words>Built directly with the developer.</h2>
+        </div>
+      </div>
+      <div class="benefit-list reveal-group">
+        <article class="benefit-item reveal-card"><span>Direct Communication</span><p>You work directly with the person designing and building the software.</p></article>
+        <article class="benefit-item reveal-card"><span>Built Around Your Workflow</span><p>The software is designed around the way your organisation actually works rather than forcing the business into a generic system.</p></article>
+        <article class="benefit-item reveal-card"><span>End-to-End Development</span><p>Planning, interface design, development, integrations, deployment and future improvements can be handled as one connected build.</p></article>
+        <article class="benefit-item reveal-card"><span>Flexible Technology</span><p>Web, mobile, cloud, databases, automation and APIs can be combined depending on what the project actually needs.</p></article>
+      </div>
+    </section>
+
+    <section class="selected-work-section quote-section" id="selected-work" aria-labelledby="selected-work-title" data-reveal-section>
+      <div class="quote-section-head">
+        <div>
+          <div class="quote-eyebrow reveal-item">Selected Work</div>
+          <h2 id="selected-work-title" class="word-reveal" data-split-words>A few things I've built.</h2>
+        </div>
+        <p class="reveal-item">Real examples of software, apps and digital platforms built through S3D Systems.</p>
+      </div>
+      <div class="work-grid reveal-group">
+        <a class="work-card reveal-card" href="/#coding">
+          <div class="work-media"><img src="../assets/images/Fakeway/fakwWay8.jpg" alt="Two Way Automation System dashboard screenshot" /></div>
+          <div class="work-copy"><span>Business Automation / Internal Software</span><h3>Two Way Automation System</h3><p>Custom operational software built to streamline business processes, documents and internal workflows.</p><em>View Project <span aria-hidden="true">&rarr;</span></em></div>
+        </a>
+        <a class="work-card reveal-card" href="/#sayvah">
+          <div class="work-media work-phone-media"><img src="../assets/images/sayvah/v2-homepage.jpeg" alt="SayVah community service app screenshot" /></div>
+          <div class="work-copy"><span>Mobile App / Community Platform</span><h3>SayVah</h3><p>Community service app and platform built around real-time seva requests, profiles and admin oversight.</p><em>View Project <span aria-hidden="true">&rarr;</span></em></div>
+        </a>
+        <a class="work-card reveal-card" href="/#coding">
+          <div class="work-media"><img src="../assets/images/Bevells/Bevells2.jpg" alt="Bevells website screenshot" /></div>
+          <div class="work-copy"><span>Website Design &amp; Development</span><h3>Bevells</h3><p>A professional company website designed to present the business clearly online.</p><em>View Project <span aria-hidden="true">&rarr;</span></em></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="process-section quote-section" aria-labelledby="process-title" data-reveal-section>
+      <div class="quote-section-head">
+        <div>
+          <div class="quote-eyebrow reveal-item">How It Works</div>
+          <h2 id="process-title" class="word-reveal" data-split-words>From idea to working software.</h2>
+        </div>
+        <p class="reveal-item">A simple path from the first conversation to a live system that can keep improving as the business changes.</p>
+      </div>
+      <div class="process-track reveal-group">
+        <article class="process-step reveal-card"><strong>01</strong><h3>Tell me what you need</h3><p>Explain what you're trying to achieve, what currently exists and what problem needs solving.</p></article>
+        <article class="process-step reveal-card"><strong>02</strong><h3>I scope the project</h3><p>I'll work out the practical requirements, approach and what needs to be built.</p></article>
+        <article class="process-step reveal-card"><strong>03</strong><h3>We build and test</h3><p>The system is developed, reviewed and tested around the real use case.</p></article>
+        <article class="process-step reveal-card"><strong>04</strong><h3>Launch and improve</h3><p>Once ready, it goes live and can continue evolving as the business needs change.</p></article>
+      </div>
+    </section>
+
+    <!-- Genuine approved testimonial content was not found in the repository. Add exact approved Google Business review text here before rendering a public testimonials section. -->
+
+    <section class="strong-cta quote-section" aria-labelledby="strong-cta-title" data-reveal-section>
+      <div class="quote-eyebrow reveal-item">Start a Project</div>
+      <h2 id="strong-cta-title" class="word-reveal" data-split-words>Have something you want to build?</h2>
+      <p class="reveal-item">Tell me what you're trying to achieve and I'll take a look at the best way to build it.</p>
+      <a class="quote-btn quote-btn-primary reveal-item" href="#project-enquiry">Start Your Project <span aria-hidden="true">&rarr;</span></a>
+    </section>
+
+    <section class="quote-shell quote-section" id="project-enquiry" data-reveal-section>
+      <div class="quote-intro reveal-item">
+        <div class="quote-eyebrow">Start a Project</div>
+        <h2 class="word-reveal" data-split-words>Tell me about the build.</h2>
         <p class="panel-copy">
-          Tell me a little about what you need. Whether it's a new idea, an existing system that needs improving, or a process you want to automate, I'll take a look and get back to you.
+          Share what you need, what currently exists, and what would make the project useful. Whether it's a new idea, an existing system that needs improving, or a process you want to automate, I'll take a look and get back to you.
         </p>
         <div class="quote-contact-note">
           <span>Prefer email?</span>
@@ -153,31 +163,12 @@
         </div>
       </div>
 
-      <form class="quote-form reveal active" id="projectEnquiryForm" novalidate>
+      <form class="quote-form reveal-item" id="projectEnquiryForm" novalidate>
         <div class="form-grid">
-          <div class="field-group">
-            <label for="name">Name <span>*</span></label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-            <p class="field-error" id="nameError"></p>
-          </div>
-
-          <div class="field-group">
-            <label for="email">Email <span>*</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-            <p class="field-error" id="emailError"></p>
-          </div>
-
-          <div class="field-group">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            <p class="field-error" id="phoneError"></p>
-          </div>
-
-          <div class="field-group">
-            <label for="company">Company / Organisation</label>
-            <input id="company" name="company" type="text" autocomplete="organization" />
-            <p class="field-error" id="companyError"></p>
-          </div>
+          <div class="field-group"><label for="name">Name <span>*</span></label><input id="name" name="name" type="text" autocomplete="name" required /><p class="field-error" id="nameError"></p></div>
+          <div class="field-group"><label for="email">Email <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" required /><p class="field-error" id="emailError"></p></div>
+          <div class="field-group"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /><p class="field-error" id="phoneError"></p></div>
+          <div class="field-group"><label for="company">Company / Organisation</label><input id="company" name="company" type="text" autocomplete="organization" /><p class="field-error" id="companyError"></p></div>
         </div>
 
         <fieldset class="option-fieldset" data-fieldset="project_type">
@@ -196,37 +187,11 @@
           <p class="field-error" id="project_typeError"></p>
         </fieldset>
 
-        <div class="field-group field-full">
-          <label for="description">Project Description <span>*</span></label>
-          <textarea id="description" name="message" rows="7" placeholder="Tell me what you're looking to build, improve or automate..." required></textarea>
-          <p class="field-error" id="messageError"></p>
-        </div>
+        <div class="field-group field-full"><label for="description">Project Description <span>*</span></label><textarea id="description" name="message" rows="7" placeholder="Tell me what you're looking to build, improve or automate..." required></textarea><p class="field-error" id="messageError"></p></div>
 
         <div class="form-grid">
-          <div class="field-group">
-            <label for="budget">Approximate Budget</label>
-            <select id="budget" name="budget">
-              <option value="">Select a range</option>
-              <option>Under £1,000</option>
-              <option>£1,000 - £3,000</option>
-              <option>£3,000 - £5,000</option>
-              <option>£5,000 - £10,000</option>
-              <option>£10,000+</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-
-          <div class="field-group">
-            <label for="timeframe">Ideal Timeframe</label>
-            <select id="timeframe" name="timeframe">
-              <option value="">Select a timeframe</option>
-              <option>As soon as possible</option>
-              <option>Within 1 month</option>
-              <option>1-3 months</option>
-              <option>3-6 months</option>
-              <option>Flexible / not sure</option>
-            </select>
-          </div>
+          <div class="field-group"><label for="budget">Approximate Budget</label><select id="budget" name="budget"><option value="">Select a range</option><option>Under £1,000</option><option>£1,000 - £3,000</option><option>£3,000 - £5,000</option><option>£5,000 - £10,000</option><option>£10,000+</option><option>Not sure yet</option></select></div>
+          <div class="field-group"><label for="timeframe">Ideal Timeframe</label><select id="timeframe" name="timeframe"><option value="">Select a timeframe</option><option>As soon as possible</option><option>Within 1 month</option><option>1-3 months</option><option>3-6 months</option><option>Flexible / not sure</option></select></div>
         </div>
 
         <input type="hidden" name="_subject" value="New S3D Project Enquiry" />
@@ -234,10 +199,7 @@
 
         <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
 
-        <button class="btn primary quote-submit" type="submit">
-          <span>Send Project Enquiry</span>
-          <span aria-hidden="true">&rarr;</span>
-        </button>
+        <button class="btn primary quote-submit" type="submit"><span>Send Project Enquiry</span><span aria-hidden="true">&rarr;</span></button>
       </form>
     </section>
   </main>

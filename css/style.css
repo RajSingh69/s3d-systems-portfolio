@@ -1754,6 +1754,29 @@ button:focus-visible {
   align-items: center;
 }
 
+.nav-links .nav-app {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--text, #fff);
+  font-weight: 700;
+}
+
+.nav-links .nav-app:hover {
+  border-color: var(--saffron);
+}
+
+/* The section links collapse on small screens; keep the Leasewise app link reachable. */
+@media(max-width: 980px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-links a:not(.nav-app) {
+    display: none;
+  }
+}
+
 section {
   padding-block: clamp(44px, 5.4vw, 72px);
 }

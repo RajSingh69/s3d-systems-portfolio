@@ -1777,6 +1777,32 @@ button:focus-visible {
   }
 }
 
+/* Narrow phones: the app links move to their own row under the brand. */
+@media(max-width: 560px) {
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  .nav-inner {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding-block: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .nav-links .nav-app {
+    flex: 1;
+    justify-content: center;
+    min-height: 38px;
+    white-space: nowrap;
+  }
+}
+
 section {
   padding-block: clamp(44px, 5.4vw, 72px);
 }

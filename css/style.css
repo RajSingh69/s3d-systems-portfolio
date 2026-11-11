@@ -2004,3 +2004,93 @@ section {
     flex: 1;
   }
 }
+
+/* =========================
+   ABOUT: two timelines + compact values cards
+   Scoped to #about so no other section is affected.
+========================= */
+
+#about .about-scroll-card {
+  min-height: 0;
+}
+
+#about .about-scroll-card span {
+  margin-bottom: 16px;
+}
+
+#about .about-scroll-card h3 {
+  margin-bottom: 10px;
+}
+
+/* The photo cards follow the text cards' height instead of setting it. */
+#about .about-scroll-card.image-card img {
+  position: absolute;
+  inset: 0;
+}
+
+#about .about-timeline + .about-timeline {
+  margin-top: 28px;
+}
+
+#about .about-timeline-head .section-kicker {
+  margin-bottom: 10px;
+}
+
+#about .about-timeline-head h3 {
+  margin: 0;
+  font-size: clamp(22px, 2.6vw, 30px);
+}
+
+#about .timeline-grid-pre {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#about .timeline-grid-year {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+#about .timeline-grid-pre .timeline-item,
+#about .timeline-grid-year .timeline-item {
+  min-height: 0;
+}
+
+#about .timeline-grid-pre .timeline-item strong,
+#about .timeline-grid-year .timeline-item strong {
+  margin-bottom: 16px;
+}
+
+#about .timeline-grid-year .timeline-item::before {
+  background: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,216,255,0.45);
+}
+
+@media(max-width: 1180px) {
+  #about .timeline-grid-year {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media(max-width: 980px) {
+  #about .timeline-grid-pre,
+  #about .timeline-grid-year {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width: 560px) {
+  #about .timeline-grid-pre,
+  #about .timeline-grid-year {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #about .timeline-grid-pre .timeline-item,
+  #about .timeline-grid-year .timeline-item {
+    padding: 16px 18px;
+  }
+
+  #about .timeline-grid-pre .timeline-item strong,
+  #about .timeline-grid-year .timeline-item strong {
+    margin-bottom: 8px;
+  }
+}

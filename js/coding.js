@@ -28,6 +28,7 @@ const codingProjects = {
   },
 
   sayvah: {
+    page: "/projects/sayvah/",
     index: "02 / Flutter App",
     title: "UK's First Seva App — SayVah",
     short: "A real-time seva platform connecting people who need help with people willing to serve.",
@@ -47,6 +48,7 @@ const codingProjects = {
   },
 
   twoway: {
+    page: "/projects/twoway-procurement/",
     index: "03 / Business Automation",
     title: "TwoWay Automation System",
     short: "A custom procurement system replacing spreadsheet-heavy workflows for a multi-million-pound company.",
@@ -97,6 +99,7 @@ const codingProjects = {
   },
 
   pyroworx: {
+    page: "/projects/pyroworx/",
     index: "05 / Invoice Automation",
     title: "Pyroworx Invoice Generator",
     short: "An invoice and delivery note generator created for a fireworks company to speed up admin and stock workflows.",
@@ -137,7 +140,8 @@ const codingProjects = {
   },
 
   bevells: {
-    index: "07 / Company Website",
+    page: "/projects/bevells/",
+    index: "10 / Company Website",
     title: "Bevells Company Letting",
     short: "A professional company website designed to give Bevells a clean, modern and trustworthy online presence.",
     long: "A company website designed for Bevells to present the business clearly online. The site focuses on simple navigation, clear service communication, professional visuals and a responsive layout that works across desktop and mobile.",
@@ -157,7 +161,8 @@ const codingProjects = {
   },
 
   brickburry: {
-    index: "08 / Company Website",
+    page: "/projects/brickburry/",
+    index: "11 / Company Website",
     title: "Brickburry Services",
     short: "A polished business website designed for Brickburry Services with a clean service-led structure.",
     long: "A company website designed for Brickburry Services, focused on presenting the business clearly with a professional layout, responsive structure and clean frontend build. The aim was to give the company a stronger digital presence and make the service offering easier to understand.",
@@ -177,7 +182,7 @@ const codingProjects = {
   },
 
   cookiehouse: {
-    index: "09 / Interactive Demo",
+    index: "12 / Interactive Demo",
     title: "Cookie House Property Website",
     short: "A privacy-safe interactive mockup of a custom-coded property website, redesigned around cookies.",
     long: "An interactive demo of a custom-coded property website. The original project was created for a property and architecture client, but due to privacy, the public-facing version was redesigned around cookies. The structure, layout, interactive features and general user experience are still visible. Access to the real version can be requested privately after client approval.",
@@ -267,6 +272,13 @@ function initialiseCodingPortfolio() {
       fields.actions.innerHTML = `
         <button type="button" disabled>${project.primaryLabel}</button>
       `;
+    }
+
+    if (project.page) {
+      fields.actions.insertAdjacentHTML(
+        "afterbegin",
+        `<a href="${project.page}" class="modal-page-link">Full project page →</a>`
+      );
     }
 
     if (project.gallery && project.gallery.length > 0) {

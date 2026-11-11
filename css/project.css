@@ -832,3 +832,57 @@
     transition: none;
   }
 }
+
+/* ---------- Back to Projects ---------- */
+
+.pp-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 26px;
+  padding: 0 18px;
+  border: 1px solid var(--pp-accent);
+  border-radius: var(--radius-sm, 10px);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pp-back span {
+  color: var(--pp-accent);
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.pp-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.pp-back:hover span {
+  transform: translateX(-3px);
+}
+
+.pp-back:focus-visible,
+.pp-btn:focus-visible,
+.pp-card:focus-visible {
+  outline: 2px solid var(--pp-accent-2);
+  outline-offset: 3px;
+}
+
+.pp-back + .pp-crumbs {
+  padding-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-back,
+  .pp-back span {
+    transition: none;
+  }
+}

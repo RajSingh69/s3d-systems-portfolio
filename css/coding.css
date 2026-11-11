@@ -957,3 +957,71 @@ a.coding-project-card {
     animation: none;
   }
 }
+
+/* ---------- Cards link straight to project pages ---------- */
+
+a.coding-showcase-card,
+a.coding-project-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.coding-showcase-card:focus-visible,
+.coding-project-card:focus-visible,
+.coding-all-link:focus-visible {
+  outline: 2px solid var(--code-cyan);
+  outline-offset: 3px;
+}
+
+.coding-showcase-card:focus-visible,
+.coding-project-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--code-border-strong);
+}
+
+.coding-project-card {
+  justify-content: flex-start;
+}
+
+.coding-project-card em {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.coding-project-card .card-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  margin: -6px -6px 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--code-border);
+  background:
+    linear-gradient(135deg, rgba(77,231,255,0.12), rgba(139,92,246,0.10)),
+    rgba(5,8,16,0.58);
+}
+
+.coding-project-card .card-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.coding-project-card:hover .card-thumb img,
+.coding-project-card:focus-visible .card-thumb img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coding-project-card .card-thumb img {
+    transition: none;
+  }
+
+  .coding-project-card:hover .card-thumb img,
+  .coding-project-card:focus-visible .card-thumb img {
+    transform: none;
+  }
+}

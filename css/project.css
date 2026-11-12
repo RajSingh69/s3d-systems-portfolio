@@ -11,6 +11,18 @@
   --pp-accent: var(--blue);
   --pp-accent-2: var(--saffron);
   --pp-wrap: min(1180px, calc(100% - 36px));
+
+  /* Theme tokens. css/project-themes.css overrides these per project;
+     the defaults reproduce the standard S3D look. */
+  --pp-head-font: var(--clean);
+  --pp-body-font: var(--clean);
+  --pp-ui-font: var(--mono);
+  --pp-surface: rgba(5, 10, 19, 0.55);
+  --pp-surface-strong: rgba(8, 14, 26, 0.92);
+  --pp-radius: 18px;
+  --pp-radius-sm: 12px;
+  --pp-btn-radius: var(--radius-sm, 10px);
+  --pp-on-accent: #08101d;
 }
 
 .pp-main {
@@ -79,6 +91,7 @@
 }
 
 .pp-hero h1 {
+  font-family: var(--pp-head-font);
   font-size: clamp(42px, 6vw, 82px);
   line-height: 0.92;
   letter-spacing: -0.07em;
@@ -115,10 +128,10 @@
   min-height: 44px;
   padding: 0 18px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm, 10px);
+  border-radius: var(--pp-btn-radius);
   background: rgba(255,255,255,0.05);
   color: var(--text);
-  font-family: var(--mono);
+  font-family: var(--pp-ui-font);
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -133,13 +146,13 @@
 .pp-btn.primary {
   background: var(--pp-accent);
   border-color: var(--pp-accent);
-  color: #08101d;
+  color: var(--pp-on-accent);
 }
 
 .pp-hero-media {
   position: relative;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--pp-radius);
   overflow: hidden;
   background: var(--dark);
   box-shadow:
@@ -251,14 +264,14 @@
   gap: 1px;
   margin-bottom: 28px;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--pp-radius);
   overflow: hidden;
   background: var(--border);
 }
 
 .pp-facts div {
   padding: 18px 20px;
-  background: rgba(8, 14, 26, 0.92);
+  background: var(--pp-surface-strong);
 }
 
 .pp-facts dt {
@@ -270,7 +283,7 @@
 
 .pp-facts dd {
   margin-top: 8px;
-  font-family: var(--clean);
+  font-family: var(--pp-body-font);
   font-size: 15px;
   line-height: 1.4;
 }
@@ -282,7 +295,7 @@
   margin-top: 22px;
   padding: clamp(24px, 4vw, 44px);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--pp-radius);
   background:
     linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
     var(--panel);
@@ -303,6 +316,7 @@
 }
 
 .pp-panel h2 {
+  font-family: var(--pp-head-font);
   font-size: clamp(28px, 3.6vw, 44px);
   margin-bottom: 18px;
 }
@@ -320,7 +334,7 @@
 .pp-prose p,
 .pp-prose li {
   color: var(--muted);
-  font-family: var(--clean);
+  font-family: var(--pp-body-font);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -355,8 +369,8 @@
 .pp-feature {
   padding: 20px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: rgba(5, 10, 19, 0.55);
+  border-radius: var(--pp-radius-sm);
+  background: var(--pp-surface);
   transition: 0.25s ease;
 }
 
@@ -366,6 +380,7 @@
 }
 
 .pp-feature h3 {
+  font-family: var(--pp-head-font);
   font-size: 18px;
   letter-spacing: -0.03em;
   margin-bottom: 8px;
@@ -395,10 +410,10 @@
   padding: 18px;
   border: 1px solid var(--border);
   border-top: 2px solid var(--pp-accent);
-  border-radius: 12px;
-  background: rgba(5, 10, 19, 0.55);
+  border-radius: var(--pp-radius-sm);
+  background: var(--pp-surface);
   counter-increment: pp-step;
-  font-family: var(--clean);
+  font-family: var(--pp-body-font);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -430,7 +445,7 @@
   width: 100%;
   padding: 0;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--pp-radius-sm);
   overflow: hidden;
   background: var(--dark);
   cursor: zoom-in;
@@ -514,8 +529,8 @@
 
 .pp-deep details {
   border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(5, 10, 19, 0.55);
+  border-radius: var(--pp-radius-sm);
+  background: var(--pp-surface);
 }
 
 .pp-deep summary {
@@ -527,7 +542,7 @@
   padding: 14px 20px;
   cursor: pointer;
   list-style: none;
-  font-family: var(--clean);
+  font-family: var(--pp-head-font);
   font-size: 17px;
   font-weight: 700;
 }
@@ -622,8 +637,8 @@
   display: block;
   padding: 20px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: rgba(8, 14, 26, 0.85);
+  border-radius: var(--pp-radius-sm);
+  background: var(--pp-surface-strong);
   text-decoration: none;
   transition: 0.25s ease;
 }
@@ -646,7 +661,7 @@
 .pp-next strong {
   display: block;
   margin-top: 6px;
-  font-family: var(--clean);
+  font-family: var(--pp-head-font);
   font-size: 18px;
 }
 

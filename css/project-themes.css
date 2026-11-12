@@ -1,0 +1,1792 @@
+/* =========================================================
+   S3D Systems — Per-project page themes
+   File: css/project-themes.css
+   Loaded after css/project.css on /projects/ pages only.
+   Each page's <body> carries .pp-theme-<slug>. Themes restyle
+   only the page content (.pp-main); the S3D nav stays the same
+   on every page so the site still feels like one site.
+   ========================================================= */
+
+/* style.css sets a font on every <p>; let each theme's body font through */
+.pp-page .pp-main p,
+.pp-page .pp-main li {
+  font-family: var(--pp-body-font);
+}
+
+
+/* =========================================================
+   TwoWay Procurement — "procurement console"
+   Spreadsheet grid, app-window chrome, data-first typography.
+   ========================================================= */
+
+body.pp-theme-twoway-procurement {
+  background:
+    linear-gradient(rgba(63,124,255,0.055) 1px, transparent 1px) 0 0 / 100% 32px,
+    linear-gradient(90deg, rgba(63,124,255,0.055) 1px, transparent 1px) 0 0 / 32px 100%,
+    #090f19;
+}
+
+.pp-theme-twoway-procurement .pp-main {
+  --pp-head-font: "IBM Plex Sans", var(--clean);
+  --pp-body-font: "IBM Plex Sans", var(--clean);
+  --pp-ui-font: "IBM Plex Mono", var(--mono);
+  --pp-radius: 6px;
+  --pp-radius-sm: 4px;
+  --pp-btn-radius: 4px;
+  --pp-surface: #0e1726;
+  --pp-surface-strong: #0c1421;
+  --border: rgba(120,160,230,0.18);
+  --panel: rgba(12,20,33,0.94);
+  font-family: var(--pp-ui-font);
+}
+
+.pp-theme-twoway-procurement .pp-hero::before {
+  background: radial-gradient(circle at 80% 30%, rgba(63,124,255,0.18), transparent 45%);
+}
+
+.pp-theme-twoway-procurement .pp-hero h1 {
+  font-size: clamp(40px, 5.4vw, 72px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.pp-theme-twoway-procurement .pp-kicker,
+.pp-theme-twoway-procurement .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green);
+}
+
+.pp-theme-twoway-procurement .pp-kicker::before { content: "> "; color: var(--pp-accent); }
+.pp-theme-twoway-procurement .pp-label::before { content: "// "; color: var(--pp-accent); }
+
+/* hero screenshot sits in an application window */
+.pp-theme-twoway-procurement .pp-hero-media {
+  padding-top: 30px;
+  background:
+    radial-gradient(circle, #ff5f57 4px, transparent 5px) 14px 15px / 14px 14px no-repeat,
+    radial-gradient(circle, #febc2e 4px, transparent 5px) 32px 15px / 14px 14px no-repeat,
+    radial-gradient(circle, #28c840 4px, transparent 5px) 50px 15px / 14px 14px no-repeat,
+    #131d2d;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(63,124,255,0.35);
+}
+
+.pp-theme-twoway-procurement .pp-hero-media::before {
+  content: "twoway / rfq-po-dashboard";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--pp-ui-font);
+  font-size: 11px;
+  color: var(--soft);
+}
+
+/* key facts read like spreadsheet cells */
+.pp-theme-twoway-procurement .pp-facts dt {
+  font-family: var(--pp-ui-font);
+  color: var(--pp-accent);
+}
+
+.pp-theme-twoway-procurement .pp-facts dd {
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+}
+
+.pp-theme-twoway-procurement .pp-main .pp-panel {
+  border-left: 3px solid var(--pp-accent);
+  backdrop-filter: none;
+}
+
+.pp-theme-twoway-procurement .pp-panel::before { display: none; }
+
+.pp-theme-twoway-procurement .pp-panel h2 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* workflow becomes a pipeline */
+.pp-theme-twoway-procurement .pp-flow { overflow: visible; gap: 22px; }
+
+.pp-theme-twoway-procurement .pp-flow li {
+  border-top: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+}
+
+.pp-theme-twoway-procurement .pp-flow li::before {
+  content: "STEP " counter(pp-step, decimal-leading-zero);
+  color: var(--green);
+}
+
+.pp-theme-twoway-procurement .pp-flow li:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  transform: translateY(-50%);
+  color: var(--pp-accent);
+  font-family: var(--pp-ui-font);
+  font-size: 16px;
+}
+
+.pp-theme-twoway-procurement .pp-features { counter-reset: tw-feature; }
+
+.pp-theme-twoway-procurement .pp-feature { counter-increment: tw-feature; }
+
+.pp-theme-twoway-procurement .pp-feature::before {
+  content: "MOD-" counter(tw-feature, decimal-leading-zero);
+  display: block;
+  margin-bottom: 10px;
+  color: var(--pp-accent);
+  font-family: var(--pp-ui-font);
+  font-size: 11px;
+}
+
+.pp-theme-twoway-procurement .pp-feature h3 { font-weight: 600; }
+
+.pp-theme-twoway-procurement .pp-stack span {
+  font-family: var(--pp-ui-font);
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .pp-theme-twoway-procurement .pp-flow li:not(:last-child)::after {
+    content: "\2193";
+    top: auto;
+    bottom: -20px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+
+/* =========================================================
+   Sprinkle of Happiness — pastel, playful, sprinkles
+   A light page with soft colour cards and rounded shapes.
+   ========================================================= */
+
+body.pp-theme-sprinkle-of-happiness {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(255,175,210,0.55), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(190,170,255,0.5), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(170,235,215,0.45), transparent 30%),
+    #fff7f0;
+}
+
+/* scattered sprinkles behind the content */
+body.pp-theme-sprinkle-of-happiness::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  /* two tiles of different sizes so the scatter never lines up */
+  background-image:
+    radial-gradient(ellipse 3px 8px at 40px 60px, #ff6fa8 98%, transparent),
+    radial-gradient(ellipse 8px 3px at 230px 150px, #8a5cf6 98%, transparent),
+    radial-gradient(ellipse 3px 8px at 120px 290px, #34c6a0 98%, transparent),
+    radial-gradient(ellipse 8px 3px at 310px 40px, #ffb627 98%, transparent),
+    radial-gradient(ellipse 3px 8px at 470px 210px, #4da3ff 98%, transparent),
+    radial-gradient(ellipse 8px 3px at 90px 470px, #ffb627 98%, transparent),
+    radial-gradient(ellipse 3px 8px at 380px 400px, #ff6fa8 98%, transparent),
+    radial-gradient(ellipse 8px 3px at 520px 520px, #34c6a0 98%, transparent);
+  background-size:
+    540px 540px, 540px 540px, 540px 540px, 540px 540px,
+    730px 610px, 730px 610px, 730px 610px, 730px 610px;
+}
+
+.pp-theme-sprinkle-of-happiness .noise { display: none; }
+
+.pp-theme-sprinkle-of-happiness .pp-main {
+  --text: #3b2346;
+  --muted: #6b5478;
+  --soft: #9a85a6;
+  --border: rgba(122,72,150,0.16);
+  --panel: #ffffff;
+  --dark: #fff1f7;
+  --pp-head-font: "Fredoka", var(--clean);
+  --pp-body-font: "Nunito", var(--clean);
+  --pp-ui-font: "Nunito", var(--clean);
+  --pp-radius: 30px;
+  --pp-radius-sm: 22px;
+  --pp-btn-radius: 999px;
+  --pp-surface: #fff7fb;
+  --pp-surface-strong: #ffffff;
+  --pp-on-accent: #ffffff;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-hero::before { display: none; }
+
+.pp-theme-sprinkle-of-happiness .pp-hero h1 {
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: #6b2fa3;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-kicker,
+.pp-theme-sprinkle-of-happiness .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #e0468a;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-summary { font-size: 18px; }
+
+.pp-theme-sprinkle-of-happiness .pp-btn {
+  font-weight: 800;
+  font-size: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(138,92,246,0.12);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-btn.primary {
+  background: linear-gradient(100deg, #ff6fa8, #a07bff);
+  border-color: transparent;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-back {
+  background: #ffffff;
+  border-color: #ffb3d1;
+  font-family: var(--pp-ui-font);
+  border-radius: 999px;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-back span { color: #e0468a; }
+
+.pp-theme-sprinkle-of-happiness .pp-status,
+.pp-theme-sprinkle-of-happiness .pp-chip {
+  background: #ffffff;
+  color: var(--muted);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-status::before { background: #34c6a0; }
+
+/* hero screenshot as a tilted polaroid */
+.pp-theme-sprinkle-of-happiness .pp-hero-media {
+  border: 8px solid #ffffff;
+  transform: rotate(-2deg);
+  box-shadow: 0 24px 60px rgba(160,100,190,0.28);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-facts { background: transparent; border: 0; gap: 12px; }
+
+.pp-theme-sprinkle-of-happiness .pp-facts div {
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(160,100,190,0.1);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-facts dt { color: #e0468a; font-weight: 800; }
+
+.pp-theme-sprinkle-of-happiness .pp-main .pp-panel {
+  backdrop-filter: none;
+  border: 0;
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgba(160,100,190,0.12);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-panel::before { display: none; }
+
+.pp-theme-sprinkle-of-happiness .pp-panel h2 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #4a2a5a;
+}
+
+/* features cycle through pastel colours */
+.pp-theme-sprinkle-of-happiness .pp-feature { border: 0; }
+.pp-theme-sprinkle-of-happiness .pp-feature:nth-child(5n+1) { background: #ffe3ef; }
+.pp-theme-sprinkle-of-happiness .pp-feature:nth-child(5n+2) { background: #ece4ff; }
+.pp-theme-sprinkle-of-happiness .pp-feature:nth-child(5n+3) { background: #dcf6ec; }
+.pp-theme-sprinkle-of-happiness .pp-feature:nth-child(5n+4) { background: #fff3cc; }
+.pp-theme-sprinkle-of-happiness .pp-feature:nth-child(5n+5) { background: #dcecff; }
+
+.pp-theme-sprinkle-of-happiness .pp-feature h3 { font-weight: 600; letter-spacing: -0.01em; }
+
+.pp-theme-sprinkle-of-happiness .pp-flow li {
+  border: 0;
+  background: #fff1f7;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-flow li::before {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ff6fa8;
+  color: #ffffff;
+  content: counter(pp-step);
+  font-family: var(--pp-head-font);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-gallery button {
+  border: 6px solid #ffffff;
+  box-shadow: 0 10px 30px rgba(160,100,190,0.14);
+  background: #ffffff;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-gallery figcaption {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-deep details { border: 0; background: #fff1f7; }
+.pp-theme-sprinkle-of-happiness .pp-deep summary::after { color: #e0468a; }
+
+.pp-theme-sprinkle-of-happiness .pp-stack span {
+  border: 0;
+  border-radius: 999px;
+  background: #ece4ff;
+  color: #4a2a5a;
+  font-weight: 700;
+}
+
+.pp-theme-sprinkle-of-happiness .pp-next a {
+  border: 0;
+  box-shadow: 0 10px 30px rgba(160,100,190,0.12);
+}
+
+.pp-theme-sprinkle-of-happiness .pp-next a:hover { box-shadow: 0 0 0 2px #ffb3d1; }
+
+.pp-theme-sprinkle-of-happiness .pp-crumbs a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-theme-sprinkle-of-happiness .pp-hero-media { transform: none; }
+}
+
+
+/* =========================================================
+   London Voices Archive — "editorial archive"
+   Black paper, cream type, serif italics, hairline rules.
+   ========================================================= */
+
+body.pp-theme-london-voices-archive {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(201,164,92,0.12), transparent 45%),
+    #0d0c0b;
+}
+
+.pp-theme-london-voices-archive .noise { opacity: 0.08; }
+
+.pp-theme-london-voices-archive .pp-main {
+  --text: #efe6d6;
+  --muted: #bdb19c;
+  --soft: #8a7f6c;
+  --border: rgba(239,230,214,0.16);
+  --panel: transparent;
+  --dark: #141210;
+  --pp-head-font: "Cormorant Garamond", Georgia, serif;
+  --pp-body-font: "EB Garamond", Georgia, serif;
+  --pp-ui-font: "EB Garamond", Georgia, serif;
+  --pp-radius: 0px;
+  --pp-radius-sm: 0px;
+  --pp-btn-radius: 0px;
+  --pp-surface: transparent;
+  --pp-surface-strong: #0d0c0b;
+  --pp-on-accent: #0d0c0b;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-london-voices-archive .pp-hero::before { display: none; }
+
+.pp-theme-london-voices-archive .pp-hero {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: clamp(32px, 5vw, 60px);
+  margin-bottom: 8px;
+}
+
+.pp-theme-london-voices-archive .pp-hero h1 {
+  font-size: clamp(52px, 7.5vw, 108px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.pp-theme-london-voices-archive .pp-kicker,
+.pp-theme-london-voices-archive .pp-label,
+.pp-theme-london-voices-archive .pp-crumbs,
+.pp-theme-london-voices-archive .pp-facts dt,
+.pp-theme-london-voices-archive .pp-gallery figcaption,
+.pp-theme-london-voices-archive .pp-next small {
+  font-family: var(--pp-ui-font);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #c9a45c;
+}
+
+.pp-theme-london-voices-archive .pp-summary {
+  font-family: var(--pp-head-font);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.pp-theme-london-voices-archive .pp-btn {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+.pp-theme-london-voices-archive .pp-btn.primary {
+  background: #c9a45c;
+  border-color: #c9a45c;
+}
+
+.pp-theme-london-voices-archive .pp-back {
+  font-family: var(--pp-ui-font);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pp-theme-london-voices-archive .pp-status,
+.pp-theme-london-voices-archive .pp-chip {
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--pp-ui-font);
+}
+
+.pp-theme-london-voices-archive .pp-status::before { background: #c9a45c; }
+
+/* hero image framed like an archive print */
+.pp-theme-london-voices-archive .pp-hero-media {
+  border: 1px solid rgba(239,230,214,0.35);
+  outline: 1px solid rgba(239,230,214,0.18);
+  outline-offset: 10px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+}
+
+.pp-theme-london-voices-archive .pp-facts {
+  border-left: 0;
+  border-right: 0;
+}
+
+.pp-theme-london-voices-archive .pp-facts dd {
+  font-family: var(--pp-head-font);
+  font-size: 19px;
+  font-style: italic;
+}
+
+/* panels become editorial sections divided by rules */
+.pp-theme-london-voices-archive .pp-main .pp-panel {
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  backdrop-filter: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pp-theme-london-voices-archive .pp-panel::before { display: none; }
+
+.pp-theme-london-voices-archive .pp-panel h2 {
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(34px, 4.4vw, 56px);
+  letter-spacing: -0.01em;
+}
+
+.pp-theme-london-voices-archive .pp-prose p,
+.pp-theme-london-voices-archive .pp-prose li {
+  font-size: 19px;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.pp-theme-london-voices-archive section.pp-panel:first-of-type .pp-prose p:first-child::first-letter {
+  float: left;
+  margin: 6px 12px 0 0;
+  font-family: var(--pp-head-font);
+  font-size: 76px;
+  font-style: italic;
+  line-height: 0.8;
+  color: #c9a45c;
+}
+
+/* features as a numbered index */
+.pp-theme-london-voices-archive .pp-features {
+  counter-reset: lva-entry;
+  gap: 0 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.pp-theme-london-voices-archive .pp-feature {
+  counter-increment: lva-entry;
+  border: 0;
+  border-top: 1px solid var(--border);
+  padding: 22px 0;
+  background: transparent;
+}
+
+.pp-theme-london-voices-archive .pp-feature:hover { transform: none; border-color: #c9a45c; }
+
+.pp-theme-london-voices-archive .pp-feature::before {
+  content: counter(lva-entry, upper-roman) ".";
+  display: block;
+  margin-bottom: 8px;
+  color: #c9a45c;
+  font-family: var(--pp-head-font);
+  font-size: 18px;
+  font-style: italic;
+}
+
+.pp-theme-london-voices-archive .pp-feature h3 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.pp-theme-london-voices-archive .pp-feature p { font-size: 16px; }
+
+.pp-theme-london-voices-archive .pp-flow li {
+  border: 0;
+  border-top: 1px solid #c9a45c;
+  background: transparent;
+  font-size: 17px;
+}
+
+.pp-theme-london-voices-archive .pp-flow li::before {
+  content: counter(pp-step, upper-roman);
+  font-family: var(--pp-head-font);
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.pp-theme-london-voices-archive .pp-gallery button { border-color: rgba(239,230,214,0.25); }
+
+.pp-theme-london-voices-archive .pp-deep details {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.pp-theme-london-voices-archive .pp-deep summary {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 500;
+  padding-left: 0;
+}
+
+.pp-theme-london-voices-archive .pp-deep details > div { padding-left: 0; }
+
+.pp-theme-london-voices-archive .pp-stack { gap: 0; }
+
+.pp-theme-london-voices-archive .pp-stack span {
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
+  font-family: var(--pp-head-font);
+  font-size: 22px;
+  font-style: italic;
+}
+
+.pp-theme-london-voices-archive .pp-stack span:not(:last-child)::after {
+  content: "\00B7";
+  margin: 0 14px;
+  color: #c9a45c;
+}
+
+.pp-theme-london-voices-archive .pp-next a {
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+}
+
+.pp-theme-london-voices-archive .pp-next strong {
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   Concept Building Control — "site plans"
+   Blueprint grid, hazard-stripe accents, condensed caps.
+   ========================================================= */
+
+body.pp-theme-concept-building-control {
+  background:
+    linear-gradient(rgba(170,205,255,0.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(170,205,255,0.07) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(rgba(170,205,255,0.1) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(90deg, rgba(170,205,255,0.1) 1px, transparent 1px) 0 0 / 120px 120px,
+    #0c1c33;
+}
+
+.pp-theme-concept-building-control .pp-main {
+  --pp-head-font: "Barlow Condensed", var(--clean);
+  --pp-body-font: "Barlow", var(--clean);
+  --pp-ui-font: "Barlow Condensed", var(--clean);
+  --pp-radius: 2px;
+  --pp-radius-sm: 2px;
+  --pp-btn-radius: 2px;
+  --pp-surface: rgba(10,24,44,0.9);
+  --pp-surface-strong: #0b1a2f;
+  --panel: rgba(12,28,51,0.92);
+  --border: rgba(170,205,255,0.2);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-concept-building-control .pp-hero::before { display: none; }
+
+.pp-theme-concept-building-control .pp-hero h1,
+.pp-theme-concept-building-control .pp-panel h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+}
+
+.pp-theme-concept-building-control .pp-hero h1 { font-size: clamp(48px, 7vw, 96px); }
+
+.pp-theme-concept-building-control .pp-kicker {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #ff8a00;
+  color: #0c1c33;
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.pp-theme-concept-building-control .pp-label {
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+
+.pp-theme-concept-building-control .pp-btn,
+.pp-theme-concept-building-control .pp-back {
+  font-family: var(--pp-ui-font);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* hazard tape on the hero image and along the top of each panel */
+.pp-theme-concept-building-control .pp-hero-media {
+  border: 0;
+  border-top: 10px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, #ff8a00 0 14px, #111 14px 28px) 10;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.pp-theme-concept-building-control .pp-main .pp-panel {
+  backdrop-filter: none;
+  border-top: 4px solid #ff8a00;
+}
+
+.pp-theme-concept-building-control .pp-panel::before { display: none; }
+
+.pp-theme-concept-building-control .pp-facts dt {
+  font-family: var(--pp-ui-font);
+  font-size: 12px;
+  color: #ff8a00;
+}
+
+.pp-theme-concept-building-control .pp-feature { border-left: 3px solid #ff8a00; }
+
+.pp-theme-concept-building-control .pp-feature h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.pp-theme-concept-building-control .pp-flow li { border-top-color: #ff8a00; }
+
+.pp-theme-concept-building-control .pp-flow li::before {
+  content: "STAGE " counter(pp-step);
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #ff8a00;
+}
+
+.pp-theme-concept-building-control .pp-stack span {
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   Pyroworx — "fireworks night"
+   Near-black sky, ember glows, tall poster headings.
+   ========================================================= */
+
+body.pp-theme-pyroworx {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255,122,26,0.22), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(255,60,60,0.16), transparent 28%),
+    radial-gradient(circle at 60% 80%, rgba(255,209,102,0.1), transparent 30%),
+    #0b0607;
+}
+
+body.pp-theme-pyroworx::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+  background-image:
+    radial-gradient(1.5px 1.5px at 40px 60px, #ffd166 98%, transparent),
+    radial-gradient(1px 1px at 210px 140px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 330px 40px, #ff7a1a 98%, transparent),
+    radial-gradient(1px 1px at 120px 300px, #fff 98%, transparent),
+    radial-gradient(1.5px 1.5px at 420px 260px, #ffd166 98%, transparent);
+  background-size: 480px 360px;
+}
+
+.pp-theme-pyroworx .pp-main {
+  --pp-head-font: "Anton", Impact, sans-serif;
+  --pp-body-font: "Rubik", var(--clean);
+  --pp-ui-font: "Rubik", var(--clean);
+  --pp-radius: 10px;
+  --pp-radius-sm: 8px;
+  --pp-btn-radius: 8px;
+  --pp-surface: rgba(30,12,10,0.7);
+  --pp-surface-strong: #160b0a;
+  --panel: rgba(22,10,9,0.86);
+  --border: rgba(255,170,110,0.18);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-pyroworx .pp-hero h1 {
+  font-weight: 400;
+  font-size: clamp(64px, 10vw, 140px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(255,122,26,0.45);
+}
+
+.pp-theme-pyroworx .pp-panel h2 {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pp-theme-pyroworx .pp-kicker,
+.pp-theme-pyroworx .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  color: #ffd166;
+  text-shadow: 0 0 14px rgba(255,209,102,0.5);
+}
+
+.pp-theme-pyroworx .pp-btn.primary { box-shadow: 0 0 24px rgba(255,122,26,0.5); }
+
+.pp-theme-pyroworx .pp-btn,
+.pp-theme-pyroworx .pp-back { font-family: var(--pp-ui-font); font-weight: 700; }
+
+.pp-theme-pyroworx .pp-hero-media {
+  box-shadow: 0 0 0 1px rgba(255,122,26,0.5), 0 0 80px rgba(255,122,26,0.3), 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* each panel lit by an ember line along the top */
+.pp-theme-pyroworx .pp-main .pp-panel {
+  backdrop-filter: none;
+  box-shadow: inset 0 2px 0 0 #ff7a1a, 0 -10px 40px -20px rgba(255,122,26,0.6);
+}
+
+.pp-theme-pyroworx .pp-panel::before {
+  background: radial-gradient(circle at 50% 0%, rgba(255,122,26,0.16), transparent 50%);
+}
+
+.pp-theme-pyroworx .pp-feature h3 { font-family: var(--pp-ui-font); font-weight: 700; }
+
+.pp-theme-pyroworx .pp-feature:hover {
+  border-color: #ff7a1a;
+  box-shadow: 0 0 30px rgba(255,122,26,0.25);
+}
+
+.pp-theme-pyroworx .pp-deep summary { font-family: var(--pp-ui-font); }
+
+
+/* =========================================================
+   Functional Doctors — "calm clinic"
+   Light ivory page, deep green ink, soft serif headings.
+   ========================================================= */
+
+body.pp-theme-functional-doctors {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(63,122,79,0.12), transparent 35%),
+    radial-gradient(circle at 0% 60%, rgba(216,195,154,0.25), transparent 35%),
+    #f7f3ea;
+}
+
+.pp-theme-functional-doctors .noise { display: none; }
+
+.pp-theme-functional-doctors .pp-main {
+  --text: #1f3a2a;
+  --muted: #4d6355;
+  --soft: #7c8c80;
+  --border: rgba(31,58,42,0.14);
+  --panel: #ffffff;
+  --dark: #eef1ea;
+  --pp-head-font: "Fraunces", Georgia, serif;
+  --pp-body-font: "Inter", var(--clean);
+  --pp-ui-font: "Inter", var(--clean);
+  --pp-radius: 22px;
+  --pp-radius-sm: 16px;
+  --pp-btn-radius: 999px;
+  --pp-surface: #f5f7f2;
+  --pp-surface-strong: #ffffff;
+  --pp-on-accent: #ffffff;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-functional-doctors .pp-hero::before { display: none; }
+
+.pp-theme-functional-doctors .pp-hero h1 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #1f3a2a;
+}
+
+.pp-theme-functional-doctors .pp-panel h2 { font-weight: 600; letter-spacing: -0.02em; }
+
+.pp-theme-functional-doctors .pp-kicker,
+.pp-theme-functional-doctors .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  color: #3f7a4f;
+}
+
+.pp-theme-functional-doctors .pp-btn,
+.pp-theme-functional-doctors .pp-back {
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffffff;
+}
+
+.pp-theme-functional-doctors .pp-btn.primary { background: #3f7a4f; }
+.pp-theme-functional-doctors .pp-back { border-radius: 999px; border-color: #3f7a4f; }
+.pp-theme-functional-doctors .pp-back span { color: #3f7a4f; }
+
+.pp-theme-functional-doctors .pp-status,
+.pp-theme-functional-doctors .pp-chip { background: #ffffff; color: var(--muted); }
+
+.pp-theme-functional-doctors .pp-hero-media {
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(31,58,42,0.18);
+}
+
+.pp-theme-functional-doctors .pp-facts dt { color: #3f7a4f; font-weight: 700; }
+
+.pp-theme-functional-doctors .pp-main .pp-panel {
+  backdrop-filter: none;
+  border: 0;
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(31,58,42,0.08);
+}
+
+.pp-theme-functional-doctors .pp-panel::before { display: none; }
+
+/* features read like a care checklist */
+.pp-theme-functional-doctors .pp-feature {
+  position: relative;
+  border: 0;
+  background: #f1f5ee;
+  padding-left: 58px;
+}
+
+.pp-theme-functional-doctors .pp-feature::before {
+  content: "\2713";
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #3f7a4f;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.pp-theme-functional-doctors .pp-feature h3 { font-weight: 600; letter-spacing: -0.01em; }
+
+.pp-theme-functional-doctors .pp-gallery button { border: 0; background: #ffffff; }
+.pp-theme-functional-doctors .pp-deep details { border: 0; background: #f1f5ee; }
+.pp-theme-functional-doctors .pp-deep summary::after { color: #3f7a4f; }
+
+.pp-theme-functional-doctors .pp-stack span {
+  border: 0;
+  border-radius: 999px;
+  background: #e4ede1;
+  color: #1f3a2a;
+}
+
+.pp-theme-functional-doctors .pp-next a { border: 0; box-shadow: 0 10px 30px rgba(31,58,42,0.08); }
+.pp-theme-functional-doctors .pp-crumbs a { color: var(--muted); }
+
+
+/* =========================================================
+   Hoffen House — "architectural property"
+   Charcoal and brass, wide-tracked caps, full-width hero image.
+   ========================================================= */
+
+body.pp-theme-hoffen-house { background: linear-gradient(180deg, #151515, #0e0e0e 60%); }
+
+.pp-theme-hoffen-house .pp-main {
+  --pp-head-font: "Montserrat", var(--clean);
+  --pp-body-font: "Lato", var(--clean);
+  --pp-ui-font: "Montserrat", var(--clean);
+  --pp-radius: 0px;
+  --pp-radius-sm: 0px;
+  --pp-btn-radius: 0px;
+  --pp-surface: #181818;
+  --pp-surface-strong: #141414;
+  --panel: #161616;
+  --border: rgba(233,226,207,0.14);
+  --text: #f2eee4;
+  --muted: #b5ae9e;
+  --pp-on-accent: #111111;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-hoffen-house .pp-hero::before { display: none; }
+
+/* stacked hero: title block, then a wide image like a property listing */
+.pp-theme-hoffen-house .pp-hero { grid-template-columns: 1fr; }
+.pp-theme-hoffen-house .pp-hero-media { order: 2; }
+.pp-theme-hoffen-house .pp-hero-media img { max-height: 620px; }
+
+.pp-theme-hoffen-house .pp-hero > div:first-child {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: end;
+}
+
+.pp-theme-hoffen-house .pp-hero > div:first-child > .pp-kicker,
+.pp-theme-hoffen-house .pp-hero > div:first-child > h1 { grid-column: 1 / -1; }
+
+.pp-theme-hoffen-house .pp-hero > div:first-child > .pp-summary { grid-column: 1; grid-row: 3 / span 2; }
+.pp-theme-hoffen-house .pp-hero > div:first-child > .pp-hero-meta { grid-column: 2; grid-row: 3; }
+.pp-theme-hoffen-house .pp-hero > div:first-child > .pp-actions { grid-column: 2; grid-row: 4; }
+
+.pp-theme-hoffen-house .pp-hero h1 {
+  font-size: clamp(44px, 6.5vw, 92px);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.pp-theme-hoffen-house .pp-panel h2 {
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(24px, 3vw, 36px);
+}
+
+.pp-theme-hoffen-house .pp-kicker,
+.pp-theme-hoffen-house .pp-label,
+.pp-theme-hoffen-house .pp-facts dt {
+  font-family: var(--pp-ui-font);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: #f5c518;
+}
+
+.pp-theme-hoffen-house .pp-btn,
+.pp-theme-hoffen-house .pp-back {
+  font-family: var(--pp-ui-font);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.pp-theme-hoffen-house .pp-hero-media { border: 0; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
+
+.pp-theme-hoffen-house .pp-main .pp-panel {
+  backdrop-filter: none;
+  border: 0;
+  border-left: 1px solid #f5c518;
+}
+
+.pp-theme-hoffen-house .pp-panel::before { display: none; }
+
+.pp-theme-hoffen-house .pp-feature { border: 0; border-top: 1px solid #f5c518; }
+
+.pp-theme-hoffen-house .pp-feature h3 {
+  font-family: var(--pp-ui-font);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pp-theme-hoffen-house .pp-stack span { border-radius: 0; letter-spacing: 0.08em; }
+
+@media (max-width: 760px) {
+  .pp-theme-hoffen-house .pp-hero > div:first-child { display: block; }
+}
+
+
+/* =========================================================
+   Bevells Company Letting — "stone and teal lettings"
+   Light stone page, classic headings, generous whitespace.
+   ========================================================= */
+
+body.pp-theme-bevells { background: #f3f0e9; }
+
+.pp-theme-bevells .noise { display: none; }
+
+.pp-theme-bevells .pp-main {
+  --text: #1c2b2a;
+  --muted: #4f5f5d;
+  --soft: #829190;
+  --border: rgba(28,43,42,0.14);
+  --panel: #fbfaf6;
+  --dark: #e9e5dc;
+  --pp-head-font: "Marcellus", Georgia, serif;
+  --pp-body-font: "Mulish", var(--clean);
+  --pp-ui-font: "Mulish", var(--clean);
+  --pp-radius: 4px;
+  --pp-radius-sm: 4px;
+  --pp-btn-radius: 2px;
+  --pp-surface: #f3f0e9;
+  --pp-surface-strong: #fbfaf6;
+  --pp-on-accent: #ffffff;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-bevells .pp-hero::before {
+  inset: -40px -10vw 40px 45%;
+  background: #e2ede9;
+}
+
+.pp-theme-bevells .pp-hero h1 { font-weight: 400; letter-spacing: 0.02em; line-height: 1.02; }
+.pp-theme-bevells .pp-panel h2 { font-weight: 400; letter-spacing: 0.02em; }
+
+.pp-theme-bevells .pp-kicker,
+.pp-theme-bevells .pp-label,
+.pp-theme-bevells .pp-facts dt {
+  font-family: var(--pp-ui-font);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: #1e8a80;
+}
+
+.pp-theme-bevells .pp-btn,
+.pp-theme-bevells .pp-back {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+}
+
+.pp-theme-bevells .pp-btn.primary { background: #1e8a80; border-color: #1e8a80; }
+.pp-theme-bevells .pp-back { border-color: #1e8a80; }
+.pp-theme-bevells .pp-back span { color: #1e8a80; }
+
+.pp-theme-bevells .pp-status,
+.pp-theme-bevells .pp-chip { background: #ffffff; color: var(--muted); border-radius: 2px; }
+
+.pp-theme-bevells .pp-hero-media {
+  border: 0;
+  box-shadow: 18px 18px 0 #1e8a80, 0 30px 60px rgba(28,43,42,0.18);
+}
+
+.pp-theme-bevells .pp-main .pp-panel {
+  backdrop-filter: none;
+  background: #fbfaf6;
+  box-shadow: 0 1px 0 rgba(28,43,42,0.06);
+}
+
+.pp-theme-bevells .pp-panel::before { display: none; }
+
+.pp-theme-bevells .pp-feature { background: #f3f0e9; border: 0; border-bottom: 2px solid #1e8a80; }
+.pp-theme-bevells .pp-feature h3 { font-weight: 400; letter-spacing: 0.02em; font-size: 20px; }
+
+.pp-theme-bevells .pp-gallery button { border: 0; background: #ffffff; }
+.pp-theme-bevells .pp-deep details { background: #f3f0e9; }
+.pp-theme-bevells .pp-deep summary::after { color: #1e8a80; }
+.pp-theme-bevells .pp-stack span { border-color: rgba(30,138,128,0.4); background: #e2ede9; color: #1c2b2a; }
+.pp-theme-bevells .pp-crumbs a { color: var(--muted); }
+
+
+/* =========================================================
+   Brickburry Services — "bold brand"
+   Deep violet, saturated colour blocks, chunky grotesk.
+   ========================================================= */
+
+body.pp-theme-brickburry {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(214,51,132,0.35), transparent 35%),
+    radial-gradient(circle at 100% 20%, rgba(255,122,26,0.28), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(63,124,255,0.28), transparent 40%),
+    #150a24;
+}
+
+.pp-theme-brickburry .pp-main {
+  --pp-head-font: "Space Grotesk", var(--clean);
+  --pp-body-font: "Space Grotesk", var(--clean);
+  --pp-ui-font: "Space Grotesk", var(--clean);
+  --pp-radius: 16px;
+  --pp-radius-sm: 12px;
+  --pp-btn-radius: 12px;
+  --pp-surface: rgba(30,16,52,0.8);
+  --pp-surface-strong: #1d1033;
+  --panel: rgba(28,14,48,0.85);
+  --border: rgba(255,255,255,0.14);
+  --pp-on-accent: #ffffff;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-brickburry .pp-hero::before { display: none; }
+
+.pp-theme-brickburry .pp-hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+/* three-colour bar under the title, from the brand art */
+.pp-theme-brickburry .pp-hero h1::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 10px;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #d63384 0 33%, #ff7a1a 33% 66%, #3f7cff 66%);
+}
+
+.pp-theme-brickburry .pp-panel h2 { font-weight: 700; letter-spacing: -0.04em; }
+
+.pp-theme-brickburry .pp-kicker,
+.pp-theme-brickburry .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  color: #ff9d5c;
+}
+
+.pp-theme-brickburry .pp-btn,
+.pp-theme-brickburry .pp-back { font-family: var(--pp-ui-font); font-weight: 700; font-size: 14px; }
+
+.pp-theme-brickburry .pp-btn.primary { background: #d63384; border-color: #d63384; }
+
+.pp-theme-brickburry .pp-hero-media {
+  border: 0;
+  padding: 4px;
+  background: linear-gradient(135deg, #d63384, #ff7a1a, #3f7cff);
+}
+
+.pp-theme-brickburry .pp-hero-media img { border-radius: 13px; }
+
+.pp-theme-brickburry .pp-main .pp-panel { backdrop-filter: none; }
+.pp-theme-brickburry .pp-panel::before { display: none; }
+
+.pp-theme-brickburry .pp-feature:nth-child(3n+1) { border-top: 4px solid #d63384; }
+.pp-theme-brickburry .pp-feature:nth-child(3n+2) { border-top: 4px solid #ff7a1a; }
+.pp-theme-brickburry .pp-feature:nth-child(3n+3) { border-top: 4px solid #3f7cff; }
+
+.pp-theme-brickburry .pp-feature h3 { font-weight: 700; }
+
+
+/* =========================================================
+   NXT Gen Sports Group — "matchday"
+   Black, red and teal, slanted condensed caps, angled cuts.
+   ========================================================= */
+
+body.pp-theme-nxt-gen-sports-group {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 60px, rgba(255,255,255,0.018) 60px 120px),
+    radial-gradient(circle at 90% 10%, rgba(224,49,75,0.22), transparent 35%),
+    #07090c;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-main {
+  --pp-head-font: "Oswald", Impact, sans-serif;
+  --pp-body-font: "Inter", var(--clean);
+  --pp-ui-font: "Oswald", var(--clean);
+  --pp-radius: 4px;
+  --pp-radius-sm: 4px;
+  --pp-btn-radius: 2px;
+  --pp-surface: #10141a;
+  --pp-surface-strong: #0c0f13;
+  --panel: rgba(14,18,23,0.94);
+  --pp-on-accent: #ffffff;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-nxt-gen-sports-group .pp-hero::before { display: none; }
+
+.pp-theme-nxt-gen-sports-group .pp-hero h1 {
+  font-weight: 700;
+  font-size: clamp(54px, 8vw, 112px);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.92;
+  font-style: italic;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-panel h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-kicker,
+.pp-theme-nxt-gen-sports-group .pp-label {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e0314b;
+  color: #ffffff;
+  font-family: var(--pp-ui-font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  transform: skewX(-12deg);
+}
+
+.pp-theme-nxt-gen-sports-group .pp-btn,
+.pp-theme-nxt-gen-sports-group .pp-back {
+  font-family: var(--pp-ui-font);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-btn.primary { background: #e0314b; border-color: #e0314b; }
+
+/* angled cut corners like sports graphics */
+.pp-theme-nxt-gen-sports-group .pp-hero-media {
+  border: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%);
+  box-shadow: none;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-main .pp-panel {
+  backdrop-filter: none;
+  border: 0;
+  border-left: 6px solid #1fb5c2;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+}
+
+.pp-theme-nxt-gen-sports-group .pp-panel::before { display: none; }
+
+.pp-theme-nxt-gen-sports-group .pp-feature h3 {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.pp-theme-nxt-gen-sports-group .pp-feature:hover { border-color: #e0314b; }
+
+.pp-theme-nxt-gen-sports-group .pp-stack span {
+  font-family: var(--pp-ui-font);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================================================
+   Sangat Works — "community marketplace"
+   Rich navy and saffron, friendly geometric type, marker underline.
+   ========================================================= */
+
+body.pp-theme-sangat-works {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(242,107,29,0.22), transparent 35%),
+    linear-gradient(180deg, #132a4d, #0e1f3a);
+}
+
+.pp-theme-sangat-works .pp-main {
+  --pp-head-font: "Poppins", var(--clean);
+  --pp-body-font: "Poppins", var(--clean);
+  --pp-ui-font: "Poppins", var(--clean);
+  --pp-radius: 20px;
+  --pp-radius-sm: 16px;
+  --pp-btn-radius: 12px;
+  --pp-surface: #1a3560;
+  --pp-surface-strong: #162d52;
+  --panel: rgba(22,45,82,0.92);
+  --border: rgba(255,255,255,0.12);
+  --pp-on-accent: #ffffff;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-sangat-works .pp-hero::before { display: none; }
+
+/* saffron marker behind the bottom of the title */
+.pp-theme-sangat-works .pp-hero h1 {
+  display: inline;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  background: linear-gradient(transparent 70%, rgba(242,107,29,0.6) 70% 90%, transparent 90%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.pp-theme-sangat-works .pp-panel h2 { font-weight: 700; letter-spacing: -0.03em; }
+
+.pp-theme-sangat-works .pp-kicker,
+.pp-theme-sangat-works .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 600;
+  color: #ff9a55;
+}
+
+.pp-theme-sangat-works .pp-summary { margin-top: 28px; }
+
+.pp-theme-sangat-works .pp-btn,
+.pp-theme-sangat-works .pp-back { font-family: var(--pp-ui-font); font-weight: 600; font-size: 13px; }
+
+.pp-theme-sangat-works .pp-btn.primary { background: #f26b1d; border-color: #f26b1d; }
+
+.pp-theme-sangat-works .pp-hero-media {
+  border: 0;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 6px rgba(242,107,29,0.35);
+}
+
+.pp-theme-sangat-works .pp-main .pp-panel { backdrop-filter: none; border: 0; }
+.pp-theme-sangat-works .pp-panel::before { display: none; }
+
+.pp-theme-sangat-works .pp-feature { border: 0; border-top: 4px solid #f26b1d; }
+.pp-theme-sangat-works .pp-feature h3 { font-weight: 600; letter-spacing: -0.02em; }
+
+.pp-theme-sangat-works .pp-stack span { border: 0; background: rgba(242,107,29,0.18); }
+
+
+/* =========================================================
+   SayVah — "seva app"
+   Night navy with warm gold glow, app-like rounded cards.
+   ========================================================= */
+
+body.pp-theme-sayvah {
+  background:
+    radial-gradient(circle at 50% -5%, rgba(255,204,51,0.22), transparent 40%),
+    radial-gradient(circle at 0% 70%, rgba(63,124,255,0.18), transparent 35%),
+    #0a1430;
+}
+
+.pp-theme-sayvah .pp-main {
+  --pp-head-font: "Plus Jakarta Sans", var(--clean);
+  --pp-body-font: "Plus Jakarta Sans", var(--clean);
+  --pp-ui-font: "Plus Jakarta Sans", var(--clean);
+  --pp-radius: 28px;
+  --pp-radius-sm: 22px;
+  --pp-btn-radius: 16px;
+  --pp-surface: rgba(255,255,255,0.05);
+  --pp-surface-strong: #101d40;
+  --panel: rgba(16,29,64,0.82);
+  --border: rgba(255,255,255,0.1);
+  --pp-on-accent: #0a1430;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-sayvah .pp-hero::before { display: none; }
+
+.pp-theme-sayvah .pp-hero h1 { font-weight: 800; letter-spacing: -0.045em; line-height: 0.98; }
+.pp-theme-sayvah .pp-panel h2 { font-weight: 800; letter-spacing: -0.035em; }
+
+.pp-theme-sayvah .pp-kicker,
+.pp-theme-sayvah .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffcc33;
+}
+
+.pp-theme-sayvah .pp-btn,
+.pp-theme-sayvah .pp-back { font-family: var(--pp-ui-font); font-weight: 700; font-size: 13px; }
+
+.pp-theme-sayvah .pp-hero-media {
+  border: 1px solid rgba(255,204,51,0.35);
+  box-shadow: 0 0 80px rgba(255,204,51,0.18), 0 30px 80px rgba(0,0,0,0.45);
+}
+
+.pp-theme-sayvah .pp-panel::before {
+  background: radial-gradient(circle at 100% 0%, rgba(255,204,51,0.1), transparent 40%);
+}
+
+/* features styled like app list items with a gold icon */
+.pp-theme-sayvah .pp-feature {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 14px;
+  align-items: start;
+}
+
+.pp-theme-sayvah .pp-feature::before {
+  content: "";
+  grid-row: span 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle, #ffcc33 6px, transparent 7px),
+    rgba(255,204,51,0.14);
+}
+
+.pp-theme-sayvah .pp-feature h3 { font-weight: 700; }
+
+.pp-theme-sayvah .pp-flow li { border-top-color: #ffcc33; }
+.pp-theme-sayvah .pp-flow li::before { color: #ffcc33; }
+
+.pp-theme-sayvah .pp-stack span { border-radius: 999px; }
+
+
+/* =========================================================
+   UK's First Langar Robot — "robotics workshop"
+   Circuit-board traces, friendly rounded type, build-block cards.
+   ========================================================= */
+
+body.pp-theme-langar-robot {
+  background:
+    linear-gradient(90deg, transparent 0 59px, rgba(77,231,255,0.07) 59px 61px, transparent 61px) 0 0 / 180px 180px,
+    linear-gradient(transparent 0 119px, rgba(255,159,28,0.07) 119px 121px, transparent 121px) 0 0 / 180px 180px,
+    radial-gradient(circle at 60px 120px, rgba(255,159,28,0.3) 4px, transparent 5px) 0 0 / 180px 180px,
+    #10131a;
+}
+
+.pp-theme-langar-robot .pp-main {
+  --pp-head-font: "Baloo 2", var(--clean);
+  --pp-body-font: "Atkinson Hyperlegible", var(--clean);
+  --pp-ui-font: "Baloo 2", var(--clean);
+  --pp-radius: 22px;
+  --pp-radius-sm: 16px;
+  --pp-btn-radius: 14px;
+  --pp-surface: #1a1f2a;
+  --pp-surface-strong: #151a23;
+  --panel: rgba(21,26,35,0.94);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-langar-robot .pp-hero h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; }
+.pp-theme-langar-robot .pp-panel h2 { font-weight: 800; letter-spacing: -0.02em; }
+
+.pp-theme-langar-robot .pp-kicker,
+.pp-theme-langar-robot .pp-label {
+  font-family: var(--pp-ui-font);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4de7ff;
+}
+
+.pp-theme-langar-robot .pp-btn,
+.pp-theme-langar-robot .pp-back { font-family: var(--pp-ui-font); font-weight: 700; font-size: 15px; }
+
+/* chunky offset shadow, like a build block */
+.pp-theme-langar-robot .pp-hero-media {
+  border: 3px solid #ff9f1c;
+  box-shadow: 10px 10px 0 #4de7ff;
+}
+
+.pp-theme-langar-robot .pp-main .pp-panel { backdrop-filter: none; border-width: 2px; }
+.pp-theme-langar-robot .pp-panel::before { display: none; }
+
+.pp-theme-langar-robot .pp-feature {
+  border: 2px solid #ff9f1c;
+  box-shadow: 6px 6px 0 rgba(255,159,28,0.35);
+}
+
+.pp-theme-langar-robot .pp-feature:nth-child(even) {
+  border-color: #4de7ff;
+  box-shadow: 6px 6px 0 rgba(77,231,255,0.3);
+}
+
+.pp-theme-langar-robot .pp-feature h3 { font-weight: 800; font-size: 21px; }
+
+.pp-theme-langar-robot .pp-gallery button { border: 2px solid rgba(255,159,28,0.5); }
+
+
+/* =========================================================
+   VR Mobile Walkthrough — "virtual space"
+   Deep violet, neon grid floor, futuristic display type.
+   ========================================================= */
+
+body.pp-theme-vr-walkthrough {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139,92,246,0.3), transparent 45%),
+    #0b0716;
+}
+
+/* perspective grid floor behind the hero */
+.pp-theme-vr-walkthrough .pp-hero::before {
+  inset: auto -10vw -20px;
+  height: 320px;
+  background:
+    linear-gradient(rgba(77,231,255,0.35) 1px, transparent 1px) 0 0 / 100% 36px,
+    linear-gradient(90deg, rgba(139,92,246,0.45) 1px, transparent 1px) 0 0 / 60px 100%;
+  transform: perspective(420px) rotateX(62deg);
+  transform-origin: bottom;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 90%);
+  mask-image: linear-gradient(to top, #000 10%, transparent 90%);
+}
+
+.pp-theme-vr-walkthrough .pp-main {
+  --pp-head-font: "Orbitron", var(--clean);
+  --pp-body-font: "Exo 2", var(--clean);
+  --pp-ui-font: "Exo 2", var(--clean);
+  --pp-radius: 12px;
+  --pp-radius-sm: 10px;
+  --pp-btn-radius: 10px;
+  --pp-surface: rgba(30,18,60,0.7);
+  --pp-surface-strong: #140c28;
+  --panel: rgba(20,12,40,0.88);
+  --border: rgba(139,92,246,0.3);
+  --pp-on-accent: #ffffff;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-vr-walkthrough .pp-hero h1 {
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 52px);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(139,92,246,0.6);
+}
+
+.pp-theme-vr-walkthrough .pp-panel h2 {
+  font-weight: 600;
+  font-size: clamp(22px, 2.8vw, 34px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pp-theme-vr-walkthrough .pp-feature h3,
+.pp-theme-vr-walkthrough .pp-deep summary { font-family: var(--pp-ui-font); font-weight: 700; }
+
+.pp-theme-vr-walkthrough .pp-kicker,
+.pp-theme-vr-walkthrough .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #4de7ff;
+}
+
+.pp-theme-vr-walkthrough .pp-btn,
+.pp-theme-vr-walkthrough .pp-back {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.pp-theme-vr-walkthrough .pp-hero-media {
+  border: 1px solid #4de7ff;
+  box-shadow: 0 0 40px rgba(77,231,255,0.35), 0 0 120px rgba(139,92,246,0.35);
+}
+
+.pp-theme-vr-walkthrough .pp-main .pp-panel {
+  box-shadow: inset 0 0 0 1px rgba(77,231,255,0.12), 0 0 40px rgba(139,92,246,0.12);
+}
+
+.pp-theme-vr-walkthrough .pp-feature:hover {
+  border-color: #4de7ff;
+  box-shadow: 0 0 24px rgba(77,231,255,0.25);
+}
+
+.pp-theme-vr-walkthrough .pp-flow li { border-top-color: #4de7ff; }
+.pp-theme-vr-walkthrough .pp-flow li::before { color: #4de7ff; }
+
+
+/* =========================================================
+   GNGC Automation Tools — "the Gurdwara schedule"
+   Royal navy and gold, calendar-page cards, geometric caps.
+   ========================================================= */
+
+body.pp-theme-gngc-automation {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(233,185,73,0.16), transparent 35%),
+    linear-gradient(180deg, #0f1f3d, #0b1730);
+}
+
+.pp-theme-gngc-automation .pp-main {
+  --pp-accent: #e9b949;
+  --pp-accent-2: #f6dfa3;
+  --pp-head-font: "Josefin Sans", var(--clean);
+  --pp-body-font: "Source Sans 3", var(--clean);
+  --pp-ui-font: "Josefin Sans", var(--clean);
+  --pp-radius: 10px;
+  --pp-radius-sm: 8px;
+  --pp-btn-radius: 6px;
+  --pp-surface: #12254a;
+  --pp-surface-strong: #10213f;
+  --panel: rgba(16,33,63,0.94);
+  --border: rgba(233,185,73,0.2);
+  --pp-on-accent: #0f1f3d;
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-gngc-automation .pp-hero::before { display: none; }
+
+.pp-theme-gngc-automation .pp-hero h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.98;
+}
+
+.pp-theme-gngc-automation .pp-panel h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pp-theme-gngc-automation .pp-kicker,
+.pp-theme-gngc-automation .pp-label,
+.pp-theme-gngc-automation .pp-facts dt {
+  font-family: var(--pp-ui-font);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #e9b949;
+}
+
+.pp-theme-gngc-automation .pp-btn,
+.pp-theme-gngc-automation .pp-back {
+  font-family: var(--pp-ui-font);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pp-theme-gngc-automation .pp-hero-media {
+  border: 2px solid #e9b949;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+
+.pp-theme-gngc-automation .pp-main .pp-panel { backdrop-filter: none; }
+.pp-theme-gngc-automation .pp-panel::before { display: none; }
+
+/* features look like calendar pages with binding holes */
+.pp-theme-gngc-automation .pp-feature {
+  padding-top: 0;
+  overflow: hidden;
+  border-color: rgba(233,185,73,0.3);
+}
+
+.pp-theme-gngc-automation .pp-feature::before {
+  content: "";
+  display: block;
+  height: 14px;
+  margin: 0 -20px 18px;
+  background:
+    radial-gradient(circle, #0f1f3d 3px, transparent 4px) 0 0 / 28px 14px repeat-x,
+    #e9b949;
+}
+
+.pp-theme-gngc-automation .pp-feature h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 17px;
+}
+
+.pp-theme-gngc-automation .pp-stack span { border-color: rgba(233,185,73,0.45); background: rgba(233,185,73,0.1); }
+
+
+/* =========================================================
+   Cookie House — "the bakery"
+   Chocolate and cream, chocolate-chip texture, round cards.
+   ========================================================= */
+
+body.pp-theme-cookie-house {
+  background:
+    radial-gradient(ellipse 5px 4px at 30px 40px, rgba(20,10,5,0.55) 98%, transparent) 0 0 / 160px 180px,
+    radial-gradient(ellipse 4px 5px at 110px 90px, rgba(20,10,5,0.55) 98%, transparent) 0 0 / 160px 180px,
+    radial-gradient(ellipse 5px 4px at 70px 150px, rgba(20,10,5,0.55) 98%, transparent) 0 0 / 160px 180px,
+    radial-gradient(circle at 20% 0%, rgba(224,164,88,0.2), transparent 40%),
+    #2b1b12;
+}
+
+.pp-theme-cookie-house .pp-main {
+  --text: #f8ead5;
+  --muted: #d7bf9f;
+  --soft: #a88d6d;
+  --border: rgba(248,234,213,0.16);
+  --pp-head-font: "Young Serif", Georgia, serif;
+  --pp-body-font: "Quicksand", var(--clean);
+  --pp-ui-font: "Quicksand", var(--clean);
+  --pp-radius: 30px;
+  --pp-radius-sm: 22px;
+  --pp-btn-radius: 999px;
+  --pp-surface: #3a2619;
+  --pp-surface-strong: #332116;
+  --panel: rgba(54,35,23,0.92);
+  --pp-on-accent: #2b1b12;
+  color: var(--text);
+  font-family: var(--pp-body-font);
+}
+
+.pp-theme-cookie-house .pp-hero::before { display: none; }
+
+.pp-theme-cookie-house .pp-hero h1 { font-weight: 400; letter-spacing: -0.02em; line-height: 1; }
+.pp-theme-cookie-house .pp-panel h2 { font-weight: 400; letter-spacing: -0.01em; }
+
+.pp-theme-cookie-house .pp-kicker,
+.pp-theme-cookie-house .pp-label {
+  font-family: var(--pp-ui-font);
+  font-weight: 700;
+  color: #e0a458;
+}
+
+.pp-theme-cookie-house .pp-btn,
+.pp-theme-cookie-house .pp-back { font-family: var(--pp-ui-font); font-weight: 700; font-size: 14px; }
+
+.pp-theme-cookie-house .pp-back { border-radius: 999px; }
+
+.pp-theme-cookie-house .pp-hero-media {
+  border: 6px solid #e0a458;
+  border-radius: 34px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+}
+
+.pp-theme-cookie-house .pp-main .pp-panel { backdrop-filter: none; border: 0; }
+.pp-theme-cookie-house .pp-panel::before { display: none; }
+
+/* features as golden "cookies" with a couple of chips */
+.pp-theme-cookie-house .pp-feature {
+  border: 0;
+  background:
+    radial-gradient(ellipse 6px 5px at 90% 16%, #2b1b12 98%, transparent),
+    radial-gradient(ellipse 5px 6px at 82% 30%, #2b1b12 98%, transparent),
+    #d39a55;
+}
+
+.pp-theme-cookie-house .pp-feature h3 { color: #2b1b12; font-weight: 400; }
+.pp-theme-cookie-house .pp-feature p { color: #3a2414; font-weight: 600; }
+
+.pp-theme-cookie-house .pp-stack span { border: 0; border-radius: 999px; background: rgba(224,164,88,0.22); }
+.pp-theme-cookie-house .pp-gallery button { border: 4px solid #e0a458; }

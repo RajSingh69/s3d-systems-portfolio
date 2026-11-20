@@ -1,0 +1,314 @@
+/* =========================================================
+   Hero showcase slideshows
+   Project frame (replaces the portrait), 3D dock and social dock.
+   Frame sizes are set by js/hero-showcase.js from each image's
+   proportions; CSS animates the change and crossfades the images.
+   ========================================================= */
+
+/* ---------- shared frame ---------- */
+
+.hero-system .show-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--frame-bg, #0b1220);
+  transition:
+    width 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    height 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    background-color 0.9s ease;
+}
+
+.hero-system .show-frame .show-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transform: none;
+  animation: none;
+  transition: opacity 0.8s ease;
+}
+
+.hero-system .show-frame .show-img.is-active {
+  opacity: 1;
+}
+
+/* ---------- project frame (was the portrait panel) ---------- */
+
+.hero-system .hero-show {
+  --show-h: 330px;
+  --show-max-w: 390px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+  clip-path: none;
+  background: none;
+}
+
+.hero-system .hero-show .show-frame {
+  width: 215px;
+  height: var(--show-h);
+  border: 1px solid rgba(255,173,51,0.36);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,0.45),
+    0 0 55px rgba(255,173,51,0.08);
+  clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 26px, 100% 100%, 0 100%);
+}
+
+.hero-system .hero-show .show-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 58%, rgba(5,10,19,0.78));
+}
+
+.hero-system .show-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.hero-system .show-caption.is-changing {
+  opacity: 0;
+}
+
+.hero-system .show-caption small {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--cyan);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-system .show-caption strong {
+  display: block;
+  color: #fff;
+  font-family: var(--clean);
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+}
+
+/* ---------- 3D + social docks ---------- */
+
+.hero-system .hero-show-dock {
+  --dock-h: 140px;
+  z-index: 16;
+}
+
+.hero-system .hero-show {
+  z-index: 16;
+}
+
+.hero-system .dock-stage {
+  height: var(--dock-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-system .dock-stage .show-frame {
+  width: 100%;
+  height: var(--dock-h);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.hero-show-dock[data-showcase="models"] .show-img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-system .dock-caption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--clean);
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.4s ease;
+}
+
+.hero-system .dock-caption.is-changing {
+  opacity: 0;
+}
+
+.hero-system .hero-show-dock .model-dock-lines {
+  margin-top: 8px;
+}
+
+.hero-system .hero-show-dock .model-dock-head {
+  margin-bottom: 10px;
+}
+
+/* Social dock: same language, saffron accent, bottom-left of the composition. */
+.hero-system .hero-social-dock {
+  left: -10px;
+  bottom: -46px;
+  width: 260px;
+  border-color: rgba(255,173,51,0.3);
+}
+
+.hero-system .hero-social-dock .model-dock-lines span {
+  background: rgba(255,173,51,0.55);
+  box-shadow: 0 0 12px rgba(255,173,51,0.45);
+}
+
+/* ---------- desktop layout (1400px+) ----------
+   Project frame sits in the clear right-middle area; the 3D and social docks
+   share the bottom edge; "Build Style" moves up so nothing overlaps. */
+
+@media(min-width: 1400px) {
+  .hero-system .hero-show {
+    right: 0;
+    bottom: 175px;
+  }
+
+  .hero-system .hero-show-dock {
+    --dock-h: 110px;
+    bottom: -46px;
+  }
+
+  .hero-system .hero-show-dock[data-showcase="models"] {
+    left: 262px;
+    width: 290px;
+  }
+
+  .hero-system .hero-social-dock {
+    left: -10px;
+    width: 260px;
+  }
+
+  .hero-system .hud-three {
+    left: 196px;
+    right: auto;
+    top: 455px;
+    bottom: auto;
+  }
+}
+
+/* ---------- laptop widths ---------- */
+
+@media(max-width: 1399px) and (min-width: 1101px) {
+  .hero-system .hero-show {
+    --show-h: 300px;
+    --show-max-w: 370px;
+    --show-reserve: 340px;
+    right: 0;
+    bottom: 200px;
+  }
+
+  .hero-system .hero-show-dock {
+    --dock-h: 100px;
+    bottom: -10px;
+  }
+
+  .hero-system .hero-show-dock[data-showcase="models"] {
+    left: 250px;
+    width: min(300px, calc(100% - 420px));
+  }
+
+  .hero-system .hero-social-dock {
+    left: -10px;
+    width: 250px;
+  }
+
+  .hero-system .hud-three {
+    left: 196px;
+    right: auto;
+    top: 380px;
+    bottom: auto;
+  }
+}
+
+@media(max-width: 1100px) and (min-width: 981px) {
+  .hero-system .hero-show {
+    --show-h: 300px;
+    --show-max-w: 340px;
+    right: 4px;
+    bottom: 135px;
+  }
+
+  .hero-system .hero-show-dock {
+    --dock-h: 100px;
+    bottom: -4px;
+  }
+
+  .hero-system .hero-show-dock[data-showcase="models"] {
+    left: 290px;
+    width: min(310px, calc(100% - 645px));
+  }
+
+  .hero-system .hero-social-dock {
+    left: -10px;
+    width: 250px;
+  }
+
+  .hero-system .hud-three {
+    left: 250px;
+    right: auto;
+    top: 350px;
+    bottom: auto;
+  }
+}
+
+/* ---------- tablet + phone: stacked composition ---------- */
+
+@media(max-width: 980px) {
+  .hero-system .hero-show {
+    --show-h: 320px;
+    --show-max-w: 100%;
+    position: relative;
+    order: 8;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: var(--show-h);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-system .hero-show-dock {
+    --dock-h: 190px;
+  }
+
+  .hero-system .hero-social-dock {
+    position: relative;
+    order: 10;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    clip-path: none;
+  }
+}
+
+@media(max-width: 560px) {
+  .hero-system .hero-show {
+    --show-h: 270px;
+  }
+
+  .hero-system .hero-show-dock {
+    --dock-h: 170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-system .show-frame,
+  .hero-system .show-frame .show-img,
+  .hero-system .show-caption,
+  .hero-system .dock-caption {
+    transition: none;
+  }
+}

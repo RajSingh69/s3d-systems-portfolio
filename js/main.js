@@ -6,6 +6,7 @@ const sectionFiles = [
   ["coding-section", "sections/coding.html"],
   ["drone-section", "sections/drone.html"],
   ["models-section", "sections/modelling.html"],
+  ["social-section", "sections/social.html"],
   ["contact-section", "sections/contact.html"],
 ];
 
@@ -58,6 +59,17 @@ function initialiseSite() {
   initialiseRevealAnimations();
   initialiseSplitWords();
   initialiseRotatingHudText();
+  initialiseTimelines();
+}
+
+// About timelines: on desktop "Pre S3D" starts collapsed and "First Year" open;
+// on mobile both start collapsed. Visitors can open or close either afterwards.
+function initialiseTimelines() {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  document.querySelectorAll("#about details[data-timeline]").forEach((timeline) => {
+    timeline.open = !isMobile && timeline.dataset.timeline === "year";
+  });
 }
 
 function initialiseScrollProgress() {

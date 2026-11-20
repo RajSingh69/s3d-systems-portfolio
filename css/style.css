@@ -2094,3 +2094,230 @@ section {
     margin-bottom: 8px;
   }
 }
+
+/* =========================================================
+   Navigation: larger, clearer section links
+   ========================================================= */
+
+.nav-links {
+  gap: clamp(2px, 0.5vw, 6px);
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta) {
+  position: relative;
+  padding: 0 clamp(8px, 0.9vw, 13px);
+  color: #dbe3f1;
+  font-size: clamp(14px, 1.15vw, 15.5px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: clamp(8px, 0.9vw, 13px);
+  right: clamp(8px, 0.9vw, 13px);
+  bottom: 6px;
+  height: 2px;
+  background: var(--saffron);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta):hover,
+.nav-links a:not(.nav-app):not(.nav-cta):focus-visible {
+  color: #fff;
+  background: rgba(255,173,51,0.1);
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta):hover::after,
+.nav-links a:not(.nav-app):not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-links .nav-app,
+.nav-links .nav-cta {
+  margin-left: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.nav-links .nav-cta {
+  padding: 0 18px;
+}
+
+/* Tighter desktop widths: drop the app links' extra padding before anything wraps. */
+@media(max-width: 1240px) and (min-width: 981px) {
+  .brand-text {
+    display: none;
+  }
+
+  .nav-links .nav-app {
+    padding: 0 10px;
+  }
+}
+
+/* Tablet and mobile: brand on top, every link in one swipeable row underneath. */
+@media(max-width: 980px) {
+  html {
+    scroll-padding-top: 136px;
+  }
+
+  .nav-inner {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    padding-block: 10px 8px;
+  }
+
+  .brand-text {
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, #000 88%, transparent);
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a:not(.nav-app),
+  .nav-links a.nav-app {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .nav-links a:not(.nav-app):not(.nav-cta) {
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    font-size: 15px;
+  }
+
+  .nav-links a:not(.nav-app):not(.nav-cta)::after {
+    display: none;
+  }
+
+  .nav-links .nav-app,
+  .nav-links .nav-cta {
+    flex: 0 0 auto;
+    min-height: 40px;
+    margin-left: 0;
+  }
+
+  .nav-links .nav-cta {
+    margin-right: 28px;
+  }
+}
+
+@media(max-width: 560px) {
+  html {
+    scroll-padding-top: 128px;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-links .nav-app {
+    flex: 0 0 auto;
+  }
+}
+
+/* =========================================================
+   About: collapsible timelines
+   ========================================================= */
+
+#about details.about-timeline > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  padding: 6px 4px;
+  margin: -6px -4px;
+}
+
+#about details.about-timeline > summary::-webkit-details-marker {
+  display: none;
+}
+
+#about details.about-timeline > summary:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 4px;
+}
+
+.timeline-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.timeline-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-weight: 900;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.timeline-toggle-label::before {
+  content: "Show";
+}
+
+details[open] > summary .timeline-toggle-label::before {
+  content: "Hide";
+}
+
+.timeline-toggle-label::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--saffron);
+  border-bottom: 2px solid var(--saffron);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+details[open] > summary .timeline-toggle-label::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+#about details.about-timeline > summary:hover .timeline-toggle-label {
+  border-color: var(--saffron);
+  background: rgba(255,173,51,0.1);
+}
+
+@media(max-width: 560px) {
+  .timeline-count {
+    display: none;
+  }
+
+  .timeline-toggle-label {
+    padding: 0 12px;
+  }
+}

@@ -1025,3 +1025,8 @@ a.coding-project-card {
     transform: none;
   }
 }
+
+/* SayVah featured card: landscape website screenshot, anchored to the headline. */
+.coding-showcase-card[href="/projects/sayvah/"] .showcase-media img {
+  object-position: left top;
+}

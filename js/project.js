@@ -8,12 +8,20 @@
 (function () {
   const progress = document.getElementById("scrollProgress");
   if (progress) {
-    const update = () => {
-      const max = document.body.scrollHeight - window.innerHeight;
-      progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    // Cached height + one transform per frame: no forced layout while scrolling.
+    let max = 1;
+    let queued = false;
+    const measure = () => { max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight); };
+    const paint = () => {
+      queued = false;
+      progress.style.transform = `scaleX(${Math.min(1, Math.max(0, window.scrollY / max))})`;
     };
-    window.addEventListener("scroll", update, { passive: true });
-    update();
+    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(paint); } };
+    measure();
+    paint();
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", () => { measure(); queue(); }, { passive: true });
+    if ("ResizeObserver" in window) new ResizeObserver(() => { measure(); queue(); }).observe(document.body);
   }
 
   const revealItems = document.querySelectorAll(".pp-reveal");

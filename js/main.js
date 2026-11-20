@@ -4,20 +4,14 @@ const sectionFiles = [
   ["about-section", "sections/about.html"],
   ["sayvah-section", "sections/sayvah.html"],
   ["coding-section", "sections/coding.html"],
+  ["building-section", "sections/building.html"],
   ["drone-section", "sections/drone.html"],
   ["models-section", "sections/modelling.html"],
   ["social-section", "sections/social.html"],
   ["contact-section", "sections/contact.html"],
 ];
 
-async function loadSection(targetId, filePath) {
-  const target = document.getElementById(targetId);
-
-  if (!target) {
-    console.warn(`Missing section target: #${targetId}`);
-    return;
-  }
-
+async function fetchSection(filePath) {
   try {
     const response = await fetch(filePath);
 
@@ -25,11 +19,11 @@ async function loadSection(targetId, filePath) {
       throw new Error(`Could not load ${filePath}`);
     }
 
-    target.innerHTML = await response.text();
+    return await response.text();
   } catch (error) {
     console.error(error);
 
-    target.innerHTML = `
+    return `
       <section>
         <div class="section-panel">
           <div class="section-kicker">Load Error</div>
@@ -44,9 +38,27 @@ async function loadSection(targetId, filePath) {
 }
 
 async function loadAllSections() {
-  await Promise.all(
-    sectionFiles.map(([targetId, filePath]) => loadSection(targetId, filePath))
-  );
+  // Fetch every section in parallel, but insert them strictly in page order:
+  // each one goes in as soon as it and everything above it have arrived.
+  // Inserting in arrival order let later sections render at the top first and
+  // then jump down, which showed up as a large layout shift.
+  const pending = sectionFiles.map(([, filePath]) => fetchSection(filePath));
+
+  for (let index = 0; index < sectionFiles.length; index++) {
+    const [targetId] = sectionFiles[index];
+    const html = await pending[index];
+    const target = document.getElementById(targetId);
+
+    if (!target) {
+      console.warn(`Missing section target: #${targetId}`);
+      continue;
+    }
+
+    target.innerHTML = html;
+
+    // Let the hero fade in as soon as it exists rather than after every section.
+    if (targetId === "hero-section") initialiseRevealAnimations(target);
+  }
 
   initialiseSite();
 
@@ -60,6 +72,49 @@ function initialiseSite() {
   initialiseSplitWords();
   initialiseRotatingHudText();
   initialiseTimelines();
+  initialiseHeroVideos();
+}
+
+// The hero videos (page background + hero frame) are ~33 MB. They used to start
+// downloading straight away and competed with the hero text and images. Start
+// them once the page has loaded, and pause the hero-frame copy while it's
+// off screen. The fixed page background keeps playing as before.
+function initialiseHeroVideos() {
+  const videos = document.querySelectorAll("video[data-src]");
+  if (!videos.length) return;
+
+  function start() {
+    videos.forEach((video) => {
+      if (!video.dataset.src) return;
+      video.src = video.dataset.src;
+      video.removeAttribute("data-src");
+      video.preload = "auto";
+      const playing = video.play();
+      if (playing && playing.catch) playing.catch(() => {});
+    });
+  }
+
+  if (document.readyState === "complete") {
+    setTimeout(start, 0);
+  } else {
+    window.addEventListener("load", start, { once: true });
+    setTimeout(start, 4000); // fallback if other media holds up the load event
+  }
+
+  const frameVideo = document.querySelector(".hero-main-video video");
+  if (frameVideo && "IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!frameVideo.src) return;
+        if (entry.isIntersecting) {
+          const playing = frameVideo.play();
+          if (playing && playing.catch) playing.catch(() => {});
+        } else {
+          frameVideo.pause();
+        }
+      });
+    }).observe(frameVideo);
+  }
 }
 
 // About timelines: on desktop "Pre S3D" starts collapsed and "First Year" open;
@@ -77,37 +132,60 @@ function initialiseScrollProgress() {
 
   if (!scrollProgress) return;
 
-  function updateProgress() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  // Reading scrollHeight and writing width on every scroll event forced a full
+  // layout per event. Cache the scrollable height, update once per frame, and
+  // move the bar with a transform so scrolling stays on the compositor.
+  let maxScroll = 1;
+  let queued = false;
 
-    scrollProgress.style.width = progress + "%";
+  function measure() {
+    maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
   }
 
-  window.removeEventListener("scroll", updateProgress);
-  window.addEventListener("scroll", updateProgress);
+  function paint() {
+    queued = false;
+    const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    scrollProgress.style.transform = `scaleX(${progress})`;
+  }
 
-  updateProgress();
+  function queuePaint() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(paint);
+  }
+
+  measure();
+  paint();
+
+  window.addEventListener("scroll", queuePaint, { passive: true });
+  window.addEventListener("resize", () => { measure(); queuePaint(); }, { passive: true });
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(() => { measure(); queuePaint(); }).observe(document.body);
+  }
 }
 
-function initialiseRevealAnimations() {
-  const revealItems = document.querySelectorAll(".reveal");
+let revealObserver = null;
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    },
-    {
-      threshold: 0.16,
-    }
-  );
+function initialiseRevealAnimations(root = document) {
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+      }
+    );
+  }
 
-  revealItems.forEach((el) => {
+  root.querySelectorAll(".reveal").forEach((el) => {
+    if (el.dataset.revealObserved) return;
+    el.dataset.revealObserved = "true";
     revealObserver.observe(el);
   });
 }

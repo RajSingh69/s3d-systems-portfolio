@@ -81,7 +81,10 @@ a {
   top: 0;
   left: 0;
   height: 4px;
-  width: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
   z-index: 9999;
   background: linear-gradient(90deg, var(--blue), var(--cyan), var(--saffron), var(--orange));
 }
@@ -2319,5 +2322,84 @@ details[open] > summary .timeline-toggle-label::after {
 
   .timeline-toggle-label {
     padding: 0 12px;
+  }
+}
+
+/* Navigation type: crisp sans-serif instead of the bold typewriter face. */
+.nav-links a,
+.nav-links a:not(.nav-app):not(.nav-cta) {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: none;
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta) {
+  font-size: 15px;
+  padding: 0 clamp(10px, 1.1vw, 15px);
+}
+
+.nav-links a:not(.nav-app):not(.nav-cta)::after {
+  left: clamp(10px, 1.1vw, 15px);
+  right: clamp(10px, 1.1vw, 15px);
+}
+
+.nav-links .nav-cta {
+  margin-left: clamp(8px, 1vw, 14px);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+/* With the app links gone the desktop header has room for the full brand again. */
+@media(max-width: 1240px) and (min-width: 981px) {
+  .brand-text {
+    display: block;
+  }
+}
+
+@media(max-width: 980px) {
+  .nav-links a:not(.nav-app):not(.nav-cta) {
+    font-size: 15px;
+    padding: 0 16px;
+  }
+
+  .nav-links .nav-cta {
+    margin-left: 0;
+  }
+}
+
+/* "Start a Project" pulse: same glow, animated with opacity on a pseudo-element
+   so it runs on the compositor instead of repainting box-shadow every frame. */
+.project-cta {
+  position: relative;
+  animation: none;
+  box-shadow:
+    0 0 10px rgba(255,173,51,0.2),
+    0 0 22px rgba(255,173,51,0.1);
+}
+
+.project-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 0 16px rgba(255,173,51,0.36),
+    0 0 34px rgba(255,122,26,0.18);
+  opacity: 0;
+  animation: projectCtaGlow 3.1s ease-in-out infinite;
+}
+
+@keyframes projectCtaGlow {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-cta::after {
+    animation: none;
   }
 }
